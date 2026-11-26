@@ -1,0 +1,84 @@
+name: Bug report
+description: Something does not work in the launcher or in the modernized game
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please do **not** attach game files (EXE, art, videos, music) - they are copyrighted.
+        Screenshots and save games you made yourself are fine.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where does the problem happen?
+      options:
+        - Launcher (install, settings, uninstall)
+        - Main menu / strategy map (council)
+        - Battle
+        - Videos / music / sound
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you see, and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Start the game with ...
+        2. Load a save / start a battle ...
+        3. Do ...
+    validations:
+      required: true
+  - type: input
+    id: launcher
+    attributes:
+      label: Launcher version
+      placeholder: e.g. 1.0
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: e.g. Windows 11 24H2
+    validations:
+      required: true
+  - type: input
+    id: screen
+    attributes:
+      label: Screen resolution and launcher display setting
+      placeholder: e.g. screen 2560x1440, launcher "Display resolution" 2560x1440, start zoom 1280x720
+    validations:
+      required: true
+  - type: dropdown
+    id: lang
+    attributes:
+      label: Launcher language
+      options: [English, Deutsch, Français, Español, Italiano, Polski, Русский, Português, 简体中文]
+  - type: checkboxes
+    id: mode
+    attributes:
+      label: Settings
+      options:
+        - label: Fullscreen
+        - label: Smooth picture (filter)
+        - label: Blurred side bars
+  - type: dropdown
+    id: source
+    attributes:
+      label: Installed from
+      options:
+        - CD image (.mds/.mdf)
+        - Installed original game folder
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots, launcher log, anything else
+      description: The text from the launcher's log box helps a lot for install problems.
