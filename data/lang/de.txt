@@ -26,11 +26,8 @@ File missing on the CD: {0}	Datei fehlt auf der CD: {0}
 Folder for the modernized game	Ordner für das modernisierte Spiel
 Fullscreen (otherwise window)	Vollbild (sonst Fenster)
 Game guide	Spielanleitung
-Game removed.	Spiel entfernt.
-Game removed; save games kept in {0}	Spiel entfernt; Spielstände bleiben in {0}
 Install	Installieren
 Installation complete. Have fun!	Installation abgeschlossen. Viel Spaß!
-Keep your save games (the Saves folder)?	Spielstände behalten (Ordner Saves)?
 Language:	Sprache:
 Music volume:	Musiklautstärke:
 No ISO 9660 file system in the data track	Kein ISO-9660-Dateisystem in der Datenspur
@@ -70,3 +67,6 @@ Uninstall...	Deinstallieren...
 Your screen: {0}	Dein Bildschirm: {0}
 {0} failed: {1}	{0} fehlgeschlagen: {1}
 {0} is not the original EXE.	{0} ist nicht die Original-EXE.
+Could not link the save games folder: {0}	Speicherstände-Ordner konnte nicht verknüpft werden: {0}
+Save games folder: {0}	Ordner für Spielstände: {0}
+Game removed. Your save games stay in {0}	Spiel entfernt. Deine Spielstände bleiben in {0}

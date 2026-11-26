@@ -26,11 +26,8 @@ File missing on the CD: {0}	Brak pliku na płycie CD: {0}
 Folder for the modernized game	Folder dla zmodernizowanej gry
 Fullscreen (otherwise window)	Pełny ekran (w przeciwnym razie okno)
 Game guide	Poradnik do gry
-Game removed.	Gra usunięta.
-Game removed; save games kept in {0}	Gra usunięta; zapisy gry zachowane w {0}
 Install	Zainstaluj
 Installation complete. Have fun!	Instalacja zakończona. Miłej zabawy!
-Keep your save games (the Saves folder)?	Zachować zapisy gry (folder Saves)?
 Language:	Język:
 Music volume:	Głośność muzyki:
 No ISO 9660 file system in the data track	Brak systemu plików ISO 9660 na ścieżce danych
@@ -70,3 +67,6 @@ Uninstall...	Odinstaluj...
 Your screen: {0}	Twój ekran: {0}
 {0} failed: {1}	{0} – błąd: {1}
 {0} is not the original EXE.	{0} nie jest oryginalnym plikiem EXE.
+Could not link the save games folder: {0}	Nie udało się podłączyć folderu zapisów gry: {0}
+Save games folder: {0}	Folder zapisów gry: {0}
+Game removed. Your save games stay in {0}	Gra usunięta. Twoje zapisy gry zostają w {0}

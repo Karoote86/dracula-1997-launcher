@@ -204,16 +204,15 @@ namespace DraculaLauncher
             if (!Installer.IsInstall(t)) { MessageBox.Show(this, L.T("No game installed by this launcher was found in the target folder.")); return; }
             if (MessageBox.Show(this, L.T("Remove the game from\n{0}\n(including the Start menu shortcut and registry entry)?", t), Text,
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
-            bool keep = MessageBox.Show(this, L.T("Keep your save games (the Saves folder)?"), Text, MessageBoxButtons.YesNo) == DialogResult.Yes;
             SetBusy(true);
             new Thread(() =>
             {
                 try
                 {
-                    new Installer(home) { Log = Say }.Uninstall(t, keep);
+                    new Installer(home) { Log = Say }.Uninstall(t);
                     Say(L.T("Removing the registry entry ..."));
                     Installer.DeleteRegistry();
-                    Say(keep ? L.T("Game removed; save games kept in {0}", Path.Combine(t, "Saves")) : L.T("Game removed."));
+                    Say(L.T("Game removed. Your save games stay in {0}", Installer.SavesHome));
                 }
                 catch (Exception ex) { Say(L.T("ERROR: {0}", ex.Message)); }
                 finally { BeginInvoke((Action)(() => SetBusy(false))); }

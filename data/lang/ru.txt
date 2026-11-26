@@ -26,11 +26,8 @@ File missing on the CD: {0}	На CD нет файла: {0}
 Folder for the modernized game	Папка для обновлённой игры
 Fullscreen (otherwise window)	Полноэкранный режим (иначе окно)
 Game guide	Руководство по игре
-Game removed.	Игра удалена.
-Game removed; save games kept in {0}	Игра удалена; сохранения остались в {0}
 Install	Установить
 Installation complete. Have fun!	Установка завершена. Приятной игры!
-Keep your save games (the Saves folder)?	Сохранить ваши сохранения (папка Saves)?
 Language:	Язык:
 Music volume:	Громкость музыки:
 No ISO 9660 file system in the data track	На дорожке данных нет файловой системы ISO 9660
@@ -70,3 +67,6 @@ Uninstall...	Удалить...
 Your screen: {0}	Ваш экран: {0}
 {0} failed: {1}	Ошибка {0}: {1}
 {0} is not the original EXE.	{0} — не оригинальный EXE.
+Could not link the save games folder: {0}	Не удалось связать папку сохранений: {0}
+Save games folder: {0}	Папка сохранений: {0}
+Game removed. Your save games stay in {0}	Игра удалена. Ваши сохранения остаются в {0}

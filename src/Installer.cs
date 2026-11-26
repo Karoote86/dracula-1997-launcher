@@ -195,6 +195,7 @@ namespace DraculaLauncher
                 }
 
                 Progress(70);
+                SetupSaves(target);
                 foreach (var e in man)
                 {
                     string dst = System.IO.Path.Combine(target, e.Path);
@@ -262,17 +263,50 @@ namespace DraculaLauncher
             return File.Exists(System.IO.Path.Combine(target, SettingsName)) && File.Exists(System.IO.Path.Combine(target, OrigExeName));
         }
 
+        // Save games live in Documents\Vlad Tepes Dracula\Saves, so they survive a reinstall or uninstall.
+        // The game finds them as <install>\Saves (via InstallPath), which is a directory junction to that folder.
+        public static string SavesHome
+        {
+            get { return System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Vlad Tepes Dracula", "Saves"); }
+        }
+
+        static bool IsLink(string dir)
+        {
+            return Directory.Exists(dir) && (File.GetAttributes(dir) & FileAttributes.ReparsePoint) != 0;
+        }
+
+        void SetupSaves(string target)
+        {
+            string link = System.IO.Path.Combine(target, "Saves"), home = SavesHome;
+            Directory.CreateDirectory(home);
+            if (IsLink(link)) Directory.Delete(link);                        // removes only the link
+            else if (Directory.Exists(link))
+            {                                                                // older layout: move the saves over
+                foreach (var f in Directory.GetFiles(link))
+                {
+                    string d = System.IO.Path.Combine(home, System.IO.Path.GetFileName(f));
+                    if (!File.Exists(d)) File.Move(f, d);
+                }
+                Directory.Delete(link, true);
+            }
+            Run(System.IO.Path.Combine(Environment.SystemDirectory, "cmd.exe"), "/c mklink /J " + Quote(link) + " " + Quote(home));
+            if (!IsLink(link)) throw new IOException(L.T("Could not link the save games folder: {0}", home));
+            Log(L.T("Save games folder: {0}", home));
+        }
+
         // Removes an install made by this launcher (only folders that carry launcher.ini + the original EXE copy).
-        // keepSaves: the Saves folder stays.
-        public void Uninstall(string target, bool keepSaves)
+        // The save games in Documents are never touched.
+        public void Uninstall(string target)
         {
             if (!IsInstall(target)) throw new InvalidOperationException(L.T("This folder was not installed by the launcher."));
             Log(L.T("Removing the game files ..."));
             foreach (var f in Directory.GetFiles(target)) File.Delete(f);
             foreach (var d in Directory.GetDirectories(target))
-                if (!(keepSaves && System.IO.Path.GetFileName(d).Equals("Saves", StringComparison.OrdinalIgnoreCase)))
-                    Directory.Delete(d, true);
-            if (!keepSaves) { try { Directory.Delete(target); } catch { } }
+            {
+                if (IsLink(d)) Directory.Delete(d);                          // the Saves link: never recurse into it
+                else Directory.Delete(d, true);
+            }
+            try { Directory.Delete(target); } catch { }
             string lnk = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Programs), "Vlad Tepes Dracula.lnk");
             if (File.Exists(lnk) && ShortcutTarget(lnk).Equals(System.IO.Path.GetFullPath(System.IO.Path.Combine(target, "Dracula.exe")), StringComparison.OrdinalIgnoreCase))
                 File.Delete(lnk);                                // only our own shortcut, never one for another install

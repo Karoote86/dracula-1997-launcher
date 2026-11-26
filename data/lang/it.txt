@@ -26,11 +26,8 @@ File missing on the CD: {0}	File mancante sul CD: {0}
 Folder for the modernized game	Cartella per il gioco modernizzato
 Fullscreen (otherwise window)	Schermo intero (altrimenti finestra)
 Game guide	Guida al gioco
-Game removed.	Gioco rimosso.
-Game removed; save games kept in {0}	Gioco rimosso; salvataggi conservati in {0}
 Install	Installa
 Installation complete. Have fun!	Installazione completata. Buon divertimento!
-Keep your save games (the Saves folder)?	Conservare i salvataggi (cartella Saves)?
 Language:	Lingua:
 Music volume:	Volume della musica:
 No ISO 9660 file system in the data track	Nessun file system ISO 9660 nella traccia dati
@@ -70,3 +67,6 @@ Uninstall...	Disinstalla...
 Your screen: {0}	Il tuo schermo: {0}
 {0} failed: {1}	{0} non riuscito: {1}
 {0} is not the original EXE.	{0} non è l'EXE originale.
+Could not link the save games folder: {0}	Impossibile collegare la cartella dei salvataggi: {0}
+Save games folder: {0}	Cartella dei salvataggi: {0}
+Game removed. Your save games stay in {0}	Gioco rimosso. I tuoi salvataggi restano in {0}
