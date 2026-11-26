@@ -11,7 +11,7 @@ version 1.0) from **your own CD** (an `.mds/.mdf` image or an installed original
 - a built-in game guide (`data/guide*.html`); an image install also copies the original manual (`MANUAL.PDF`)
 - launcher and guide in English, German, French, Spanish, Italian, Polish, Russian, Portuguese and Simplified Chinese
   (picked from the Windows language, switchable in the launcher; translations in `data/lang/`)
-- detects the screen size; display modes 1600x900 to 5120x2880 incl. 16:10 and 21:9; uninstall keeps save games if wanted
+- detects the screen size; display modes 1600x900 to 5120x2880 incl. 16:10 and 21:9; save games live in `Documents\Vlad Tepes Dracula\Saves` and survive reinstalls
 
 **This repository contains no game data.** The launcher reads every game file (EXE, graphics, videos,
 music) from your CD. The patches contain only new code; wherever they need bytes of the original, they store
