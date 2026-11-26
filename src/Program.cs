@@ -25,12 +25,14 @@ namespace DraculaLauncher
         readonly ComboBox level = new ComboBox(), disp = new ComboBox();
         readonly CheckBox blur = new CheckBox(), full = new CheckBox(), smooth = new CheckBox(), reg = new CheckBox();
         readonly TrackBar vol = new TrackBar();
-        readonly Button bInstall = new Button(), bApply = new Button(), bPlay = new Button(), bGuide = new Button();
+        readonly Button bInstall = new Button(), bApply = new Button(), bPlay = new Button(), bGuide = new Button(), bOpen = new Button(), bRemove = new Button();
+        readonly ProgressBar bar = new ProgressBar();
+        readonly Label screenInfo = new Label();
 
         public MainForm()
         {
             Text = "Vlad Tepes Dracula - Launcher";
-            ClientSize = new Size(640, 560);
+            ClientSize = new Size(640, 640);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Font = new Font("Segoe UI", 9f);
@@ -45,6 +47,8 @@ namespace DraculaLauncher
             var g2 = Group("2. Settings", ref y, 200);
             Label(g2, "Start zoom level (battlefield):", 12, 28); Combo(g2, level, Settings.Levels, 230, 24);
             Label(g2, "Display resolution:", 12, 60); Combo(g2, disp, Settings.Displays, 230, 56);
+            screenInfo.AutoSize = true; screenInfo.ForeColor = SystemColors.GrayText; screenInfo.Location = new Point(400, 60); g2.Controls.Add(screenInfo);
+            disp.SelectedIndexChanged += (s, e) => ShowScreenInfo();
             blur.Text = "Blurred side bars in menus and on the strategy map (otherwise black)"; blur.SetBounds(12, 88, 600, 22);
             full.Text = "Fullscreen (otherwise window)"; full.SetBounds(12, 112, 600, 22);
             smooth.Text = "Smooth picture (filter); off = sharp pixels"; smooth.SetBounds(12, 136, 600, 22);
@@ -57,7 +61,12 @@ namespace DraculaLauncher
             bGuide.Text = "Game guide"; bGuide.SetBounds(324, y, 148, 32); bGuide.Click += (s, e) => Guide();
             bPlay.Text = "Play"; bPlay.SetBounds(480, y, 148, 32); bPlay.Click += (s, e) => Play();
             Controls.AddRange(new Control[] { bInstall, bApply, bGuide, bPlay });
-            y += 44;
+            y += 40;
+            bOpen.Text = "Open game folder"; bOpen.SetBounds(12, y, 148, 28); bOpen.Click += (s, e) => OpenFolder();
+            bRemove.Text = "Uninstall..."; bRemove.SetBounds(480, y, 148, 28); bRemove.Click += (s, e) => Remove();
+            bar.SetBounds(168, y + 4, 304, 20); bar.Minimum = 0; bar.Maximum = 100;
+            Controls.AddRange(new Control[] { bOpen, bRemove, bar });
+            y += 38;
             log.Multiline = true; log.ReadOnly = true; log.ScrollBars = ScrollBars.Vertical;
             log.SetBounds(12, y, 616, ClientSize.Height - y - 12); Controls.Add(log);
 
@@ -118,9 +127,18 @@ namespace DraculaLauncher
             var st = Settings.Load(Path.Combine(dst.Text, Installer.SettingsName));
             level.SelectedItem = st.Level; disp.SelectedItem = st.Display; blur.Checked = st.BlurBars;
             full.Checked = st.Fullscreen; smooth.Checked = st.Smooth; vol.Value = st.MusicVolume;
+            ShowScreenInfo();
         }
 
         void Say(string t) { BeginInvoke((Action)(() => log.AppendText(t + Environment.NewLine))); }
+        void SetProgress(int p) { BeginInvoke((Action)(() => bar.Value = Math.Max(0, Math.Min(100, p)))); }
+
+        void ShowScreenInfo()
+        {
+            string scr = Settings.ScreenSize();
+            string sel = (string)disp.SelectedItem;
+            screenInfo.Text = scr == null ? "" : "Your screen: " + scr + (scr == sel ? "" : " (scaled to fit)");
+        }
 
         void Work(bool install)
         {
@@ -137,7 +155,7 @@ namespace DraculaLauncher
             {
                 try
                 {
-                    var ins = new Installer(home) { Log = Say };
+                    var ins = new Installer(home) { Log = Say, Progress = SetProgress };
                     if (install)
                     {
                         ins.Install(source, target, st);
@@ -156,7 +174,36 @@ namespace DraculaLauncher
             }) { IsBackground = true }.Start();
         }
 
-        void SetBusy(bool b) { bInstall.Enabled = bApply.Enabled = bPlay.Enabled = !b; UseWaitCursor = b; }
+        void SetBusy(bool b) { bInstall.Enabled = bApply.Enabled = bPlay.Enabled = bRemove.Enabled = !b; UseWaitCursor = b; if (b) bar.Value = 0; }
+
+        void OpenFolder()
+        {
+            string t = dst.Text.Trim();
+            if (!Directory.Exists(t)) { MessageBox.Show(this, "The target folder does not exist yet."); return; }
+            System.Diagnostics.Process.Start("explorer.exe", "\"" + t + "\"");
+        }
+
+        void Remove()
+        {
+            string t = dst.Text.Trim();
+            if (!Installer.IsInstall(t)) { MessageBox.Show(this, "No game installed by this launcher was found in the target folder."); return; }
+            if (MessageBox.Show(this, "Remove the game from\n" + t + "\n(including the Start menu shortcut and registry entry)?", Text,
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+            bool keep = MessageBox.Show(this, "Keep your save games (the Saves folder)?", Text, MessageBoxButtons.YesNo) == DialogResult.Yes;
+            SetBusy(true);
+            new Thread(() =>
+            {
+                try
+                {
+                    new Installer(home) { Log = Say }.Uninstall(t, keep);
+                    Say("Removing the registry entry ...");
+                    Installer.DeleteRegistry();
+                    Say(keep ? "Game removed; save games kept in " + Path.Combine(t, "Saves") : "Game removed.");
+                }
+                catch (Exception ex) { Say("ERROR: " + ex.Message); }
+                finally { BeginInvoke((Action)(() => SetBusy(false))); }
+            }) { IsBackground = true }.Start();
+        }
 
         // Own guide (always available); the original manual is in the game folder after an image install.
         void Guide()

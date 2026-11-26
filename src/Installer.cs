@@ -18,7 +18,43 @@ namespace DraculaLauncher
         public int MusicVolume = 100;
 
         public static readonly string[] Levels = { "920x480", "1040x560", "1160x640", "1280x720", "1520x880", "1840x1080", "2080x1240" };
-        public static readonly string[] Displays = { "1920x1080", "2560x1440", "3840x2160" };
+        public static readonly string[] Displays = { "1600x900", "1920x1080", "2560x1440", "3840x2160", "5120x2880", "1920x1200", "2560x1080", "3440x1440" };
+
+        // Current desktop mode of the primary screen in real pixels (not DPI-scaled).
+        [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential, CharSet = System.Runtime.InteropServices.CharSet.Unicode)]
+        struct DEVMODE
+        {
+            [System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.ByValTStr, SizeConst = 32)] public string dmDeviceName;
+            public short dmSpecVersion, dmDriverVersion, dmSize, dmDriverExtra;
+            public int dmFields, dmPositionX, dmPositionY, dmDisplayOrientation, dmDisplayFixedOutput;
+            public short dmColor, dmDuplex, dmYResolution, dmTTOption, dmCollate;
+            [System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.ByValTStr, SizeConst = 32)] public string dmFormName;
+            public short dmLogPixels;
+            public int dmBitsPerPel, dmPelsWidth, dmPelsHeight, dmDisplayFlags, dmDisplayFrequency;
+            public int dmICMMethod, dmICMIntent, dmMediaType, dmDitherType, dmReserved1, dmReserved2, dmPanningWidth, dmPanningHeight;
+        }
+        [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Unicode)]
+        static extern bool EnumDisplaySettings(string dev, int mode, ref DEVMODE dm);
+
+        public static string ScreenSize()
+        {
+            var dm = new DEVMODE { dmSize = (short)System.Runtime.InteropServices.Marshal.SizeOf(typeof(DEVMODE)) };
+            return EnumDisplaySettings(null, -1, ref dm) ? dm.dmPelsWidth + "x" + dm.dmPelsHeight : null;
+        }
+
+        // Best offered display size for a screen: exact match, else the largest one of the same shape that fits,
+        // else the largest 16:9 one that fits (cnc-ddraw scales the picture to the screen in any case).
+        public static string BestDisplay(string screen)
+        {
+            if (screen == null) return "1920x1080";
+            if (Displays.Contains(screen)) return screen;
+            var p = screen.Split('x'); int sw = int.Parse(p[0]), sh = int.Parse(p[1]);
+            Func<string, int[]> wh = d => d.Split('x').Select(int.Parse).ToArray();
+            var fit = Displays.Select(wh).Where(d => d[0] <= sw && d[1] <= sh).ToList();
+            var same = fit.Where(d => Math.Abs((double)d[0] / d[1] - (double)sw / sh) < 0.02).OrderBy(d => d[0]).ToList();
+            var pick = same.Count > 0 ? same.Last() : fit.Where(d => d[0] * 9 == d[1] * 16).OrderBy(d => d[0]).LastOrDefault();
+            return pick == null ? "1600x900" : pick[0] + "x" + pick[1];
+        }
 
         public string PatchName { get { return "z" + Level + "_d" + Display + "_" + (BlurBars ? "blur" : "black") + ".drp"; } }
 
@@ -33,6 +69,7 @@ namespace DraculaLauncher
         public static Settings Load(string path)
         {
             var s = new Settings();
+            s.Display = BestDisplay(ScreenSize());
             if (!File.Exists(path)) return s;
             foreach (var line in File.ReadAllLines(path))
             {
@@ -60,6 +97,7 @@ namespace DraculaLauncher
         public const string SettingsName = "launcher.ini";
         public readonly string Home;          // launcher folder (data\, bundle\, encoder\)
         public Action<string> Log = s => { };
+        public Action<int> Progress = p => { };   // 0..100
 
         public Installer(string home) { Home = home; }
 
@@ -117,11 +155,12 @@ namespace DraculaLauncher
                             Directory.CreateDirectory(target);
                             d.ExtractFile(manual, System.IO.Path.Combine(target, "MANUAL.PDF"));
                         }
-                        Log("Converting the CD music to OGG ...");
+                        Progress(15);
                         musicSrc = System.IO.Path.Combine(tmp, "music");
                         Directory.CreateDirectory(musicSrc);
                         string enc = System.IO.Path.Combine(Home, "encoder", "dracenc.exe");
-                        foreach (var t in d.Tracks.Where(t => t.IsAudio))
+                        var audio = d.Tracks.Where(t => t.IsAudio).ToList();
+                        foreach (var t in audio)
                         {
                             string pcm = System.IO.Path.Combine(tmp, "track.pcm");
                             using (var o = File.Create(pcm)) d.CopyAudio(t, o);
@@ -129,6 +168,7 @@ namespace DraculaLauncher
                             Run(enc, Quote(pcm) + " " + Quote(ogg) + " 0.7");
                             File.Delete(pcm);
                             Log(string.Format("  Track{0:00}.ogg", t.Number));
+                            Progress(15 + 45 * (audio.IndexOf(t) + 1) / audio.Count);
                         }
                     }
                 }
@@ -146,7 +186,7 @@ namespace DraculaLauncher
                     if (Directory.Exists(m) && Directory.GetFiles(m, "Track*.ogg").Length > 0) musicSrc = m;
                 }
 
-                Log("Checking the game files ...");
+                Progress(60);
                 foreach (var e in man)
                 {
                     string p = System.IO.Path.Combine(tmp, "game", e.Path);
@@ -155,7 +195,7 @@ namespace DraculaLauncher
                             "\n(Only the English CD version 1.0 from 1997 is supported.)");
                 }
 
-                Log("Copying the game files ...");
+                Progress(70);
                 foreach (var e in man)
                 {
                     string dst = System.IO.Path.Combine(target, e.Path);
@@ -166,7 +206,7 @@ namespace DraculaLauncher
                 }
                 File.Copy(System.IO.Path.Combine(target, "Dracula.exe"), System.IO.Path.Combine(target, OrigExeName), true);
 
-                Log("Removing the black lines from the videos ...");
+                Progress(80);
                 foreach (var v in Directory.GetFiles(System.IO.Path.Combine(target, "Cinema"), "*.cin"))
                     if (!Patcher.PatchVideo(v)) Log("  skipped: " + System.IO.Path.GetFileName(v));
 
@@ -179,7 +219,7 @@ namespace DraculaLauncher
                 }
                 else Log("Note: no music found (only possible from the image) - the game runs without music.");
 
-                Log("Copying cnc-ddraw and ogg-winmm ...");
+                Progress(88);
                 CopyDir(System.IO.Path.Combine(Home, "bundle", "game"), target);
                 File.Copy(System.IO.Path.Combine(Home, "data", "guide.html"), System.IO.Path.Combine(target, "Guide.html"), true);
 
@@ -214,7 +254,38 @@ namespace DraculaLauncher
             string wm = System.IO.Path.Combine(target, "winmm.ini");
             if (File.Exists(wm)) IniSet(wm, "CDDAVolume", s.MusicVolume.ToString());
             s.Save(System.IO.Path.Combine(target, SettingsName));
+            Progress(100);
             Log("Done.");
+        }
+
+        public static bool IsInstall(string target)
+        {
+            return File.Exists(System.IO.Path.Combine(target, SettingsName)) && File.Exists(System.IO.Path.Combine(target, OrigExeName));
+        }
+
+        // Removes an install made by this launcher (only folders that carry launcher.ini + the original EXE copy).
+        // keepSaves: the Saves folder stays.
+        public void Uninstall(string target, bool keepSaves)
+        {
+            if (!IsInstall(target)) throw new InvalidOperationException("This folder was not installed by the launcher.");
+            Log("Removing the game files ...");
+            foreach (var f in Directory.GetFiles(target)) File.Delete(f);
+            foreach (var d in Directory.GetDirectories(target))
+                if (!(keepSaves && System.IO.Path.GetFileName(d).Equals("Saves", StringComparison.OrdinalIgnoreCase)))
+                    Directory.Delete(d, true);
+            if (!keepSaves) { try { Directory.Delete(target); } catch { } }
+            string lnk = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Programs), "Vlad Tepes Dracula.lnk");
+            if (File.Exists(lnk) && ShortcutTarget(lnk).Equals(System.IO.Path.GetFullPath(System.IO.Path.Combine(target, "Dracula.exe")), StringComparison.OrdinalIgnoreCase))
+                File.Delete(lnk);                                // only our own shortcut, never one for another install
+            Log("Done.");
+        }
+
+        // Removes the registry entry (needs admin: runs reg.exe elevated). Ignores a missing key.
+        public static void DeleteRegistry()
+        {
+            var psi = new ProcessStartInfo("reg.exe", "delete \"HKLM\\SOFTWARE\\WOW6432Node\\ComputerHouse\\Dracula\" /f")
+            { UseShellExecute = true, Verb = "runas", WindowStyle = ProcessWindowStyle.Hidden };
+            using (var p = Process.Start(psi)) p.WaitForExit();
         }
 
         // Sets the first "key=value" line with this key (the [ddraw] section comes first in cnc-ddraw's ini).
@@ -269,6 +340,12 @@ namespace DraculaLauncher
             var psi = new ProcessStartInfo("reg.exe", "import \"" + reg + "\"") { UseShellExecute = true, Verb = "runas", WindowStyle = ProcessWindowStyle.Hidden };
             using (var p = Process.Start(psi)) { p.WaitForExit(); if (p.ExitCode != 0) throw new Exception("Registry entry failed"); }
             File.Delete(reg);
+        }
+
+        static string ShortcutTarget(string lnk)
+        {
+            dynamic sh = Activator.CreateInstance(Type.GetTypeFromProgID("WScript.Shell"));
+            return System.IO.Path.GetFullPath((string)sh.CreateShortcut(lnk).TargetPath);
         }
 
         public static void CreateShortcut(string target, string name)

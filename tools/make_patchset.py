@@ -15,7 +15,7 @@ import hashlib, os, struct, subprocess, sys, tempfile, zlib
 
 MINRUN = 4
 LEVELS = ['920x480', '1040x560', '1160x640', '1280x720', '1520x880', '1840x1080', '2080x1240']
-DISPS = ['1920x1080', '2560x1440', '3840x2160']
+DISPS = ['1600x900', '1920x1080', '2560x1440', '3840x2160', '5120x2880', '1920x1200', '2560x1080', '3440x1440']
 BARS = ['blur', 'black']
 NOCD = (0x1C9A0, bytes.fromhex('83ec30'), bytes.fromhex('b001c3'))
 
