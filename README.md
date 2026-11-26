@@ -8,7 +8,10 @@ version 1.0) from **your own CD** (an `.mds/.mdf` image or an installed original
 - 16:9 battlefield with mouse-wheel zoom (7 levels), a fixed side panel at every level,
   unit-type and control-group buttons
 - menus and strategy map with blurred side bars instead of black, videos without black lines
-- a built-in game guide (`data/guide.html`); an image install also copies the original manual (`MANUAL.PDF`)
+- a built-in game guide (`data/guide*.html`); an image install also copies the original manual (`MANUAL.PDF`)
+- launcher and guide in English, German, French, Spanish, Italian, Polish, Russian and Portuguese
+  (picked from the Windows language, switchable in the launcher; translations in `data/lang/`)
+- detects the screen size; display modes 1600x900 to 5120x2880 incl. 16:10 and 21:9; uninstall keeps save games if wanted
 
 **This repository contains no game data.** The launcher reads every game file (EXE, graphics, videos,
 music) from your CD. The patches contain only new code; wherever they need bytes of the original, they store

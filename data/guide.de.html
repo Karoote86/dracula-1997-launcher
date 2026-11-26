@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Vlad Tepes Dracula – Spielanleitung</title>
+<style>
+  :root { --ink:#2b2118; --paper:#f4ecdc; --rule:#c9b89a; --accent:#8b1a1a; --muted:#6d5f4d; }
+  body { margin:0; background:#e6dcc6; color:var(--ink); font:16px/1.55 Georgia, "Book Antiqua", serif; }
+  main { max-width:860px; margin:0 auto; padding:32px 40px 64px; background:var(--paper); min-height:100vh; box-sizing:border-box; }
+  h1 { font-size:2.1em; color:var(--accent); margin:0 0 4px; letter-spacing:.5px; }
+  .sub { color:var(--muted); margin:0 0 24px; }
+  h2 { color:var(--accent); border-bottom:1px solid var(--rule); padding-bottom:4px; margin-top:40px; }
+  h3 { margin:24px 0 6px; }
+  nav { background:#ebe1cb; border:1px solid var(--rule); padding:12px 20px; border-radius:4px; }
+  nav ol { margin:0; padding-left:20px; columns:2; }
+  nav a, a { color:var(--accent); }
+  table { border-collapse:collapse; width:100%; margin:8px 0 16px; font-size:.95em; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  th { background:#ebe1cb; }
+  kbd { font:13px/1 Consolas, monospace; background:#fff; border:1px solid #b9a888; border-bottom-width:2px; border-radius:3px; padding:2px 6px; white-space:nowrap; }
+  .tip { background:#efe3c8; border-left:4px solid var(--accent); padding:8px 14px; margin:14px 0; }
+  .new { display:inline-block; font:bold 11px sans-serif; color:#fff; background:var(--accent); border-radius:3px; padding:1px 5px; vertical-align:middle; }
+  footer { margin-top:48px; color:var(--muted); font-size:.85em; }
+</style>
+</head>
+<body><main>
+<h1>Vlad Tepes Dracula</h1>
+<p class="sub">Spielanleitung für die modernisierte Fassung – Grundlagen, Spielablauf und Steuerung</p>
+
+<nav><ol>
+  <li><a href="#about">Worum geht es?</a></li>
+  <li><a href="#start">Der erste Start</a></li>
+  <li><a href="#council">Der Rat (Strategiekarte)</a></li>
+  <li><a href="#battle">Die Schlacht</a></li>
+  <li><a href="#units">Die Einheiten</a></li>
+  <li><a href="#buildings">Bauwerke</a></li>
+  <li><a href="#keys">Tastenbelegung</a></li>
+  <li><a href="#new">Neu in dieser Fassung</a></li>
+  <li><a href="#tips">Tipps für den Anfang</a></li>
+</ol></nav>
+
+<h2 id="about">1. Worum geht es?</h2>
+<p>Die Walachei im Jahr 1456: Das Land ist in zwölf Grafschaften geteilt, die meisten davon in der Hand des
+osmanischen Heeres. Als Vlad Dracula führst du den Widerstand an und eroberst das Land Grafschaft für
+Grafschaft zurück.</p>
+<p>Das Spiel hat zwei Ebenen, zwischen denen du ständig wechselst:</p>
+<ul>
+  <li><b>Der Rat</b> ist die rundenbasierte Strategiekarte. Eine Runde ist eine Woche. Hier verwaltest du
+  Rohstoffe, bildest Truppen aus, baust Befestigungen und schickst Armeen in Nachbargrafschaften.</li>
+  <li><b>Die Schlacht</b> läuft in Echtzeit. Sobald du angreifst oder angegriffen wirst, kämpfst du auf der Karte
+  der betroffenen Grafschaft und steuerst jeden Soldaten selbst.</li>
+</ul>
+
+<h2 id="start">2. Der erste Start</h2>
+<p>Im Hauptmenü stehen dir diese Punkte zur Verfügung:</p>
+<table>
+  <tr><th>Engage</th><td>Spiel beginnen. Läuft schon eins, kannst du weiterspielen, neu anfangen oder zurück.</td></tr>
+  <tr><th>Load / Save</th><td>Spielstand laden oder speichern. Platz wählen, beim Speichern einen Namen eintippen,
+  mit <kbd>Enter</kbd> bestätigen, mit <kbd>Esc</kbd> abbrechen.</td></tr>
+  <tr><th>Introduction</th><td>Zeigt das Einleitungsvideo noch einmal. Eine Taste bricht ab.</td></tr>
+  <tr><th>Options</th><td>Lautstärke von Effekten und Musik, Helligkeit/Farbe/Kontrast, Spieltempo und
+  Scrollgeschwindigkeit. <kbd>D</kbd> setzt alles zurück.</td></tr>
+  <tr><th>Exit</th><td>Beendet das Spiel. Bitte immer so beenden statt mit Alt+F4.</td></tr>
+</table>
+<div class="tip">Im Spiel gibt es eine eingebaute Hilfe mit allen Kürzeln: <kbd>F1</kbd> oder <kbd>Strg</kbd>+<kbd>H</kbd>
+(oder ein Klick auf das Hilfefeld unten in der Seitenleiste). Blättern mit den Pfeiltasten und Bild auf/ab,
+<kbd>Esc</kbd> schließt sie.</div>
+
+<h2 id="council">3. Der Rat (Strategiekarte)</h2>
+<h3>Die Karte</h3>
+<p>Braun eingefärbte Grafschaften gehören dem Gegner, die übrigen dir. Eine Grafschaft ist immer <b>ausgewählt</b>
+(hervorgehoben), und alle Befehle im Rat beziehen sich auf sie. Wählen kannst du per Mausklick oder mit den
+Pfeiltasten. Ein Doppelklick auf eine eigene Grafschaft (oder <kbd>I</kbd>) öffnet ihr Schlachtfeld: So kannst du
+deine Truppen vor einem Angriff aufstellen oder das Gelände ansehen. Blaue Pfeile zeigen deine Truppenbewegungen.</p>
+
+<h3>Rohstoffe</h3>
+<p>Unten in der Mitte siehst du fünf Werte, jeweils mit Bestand und darunter der Änderung pro Woche:</p>
+<table>
+  <tr><th>Gold</th><td>Bezahlt Ausbildung, Bau und Forschung.</td></tr>
+  <tr><th>Getreide</th><td>Jeder Soldat isst pro Woche eine Einheit. Fehlt der Unterhalt, laufen Truppen davon.</td></tr>
+  <tr><th>Baumaterial</th><td>Für Bauwerke.</td></tr>
+  <tr><th>Rekruten</th><td>Männer, aus denen neue Truppen ausgebildet werden.</td></tr>
+  <tr><th>Armee</th><td>Deine gesamte Truppenstärke.</td></tr>
+</table>
+<p>Ein Klick auf ein Rohstoffbild blendet einen Verlaufsgraphen ein oder aus.</p>
+
+<h3>Die Reiter am linken Rand</h3>
+<table>
+  <tr><th>Training</th><td>Truppen ausbilden. Die Liste zeigt Kosten, Dauer in Wochen und Kampfwerte
+  (Schaden, Treffsicherheit, Rüstung, Ausdauer, Tempo, Reichweite). Neue Truppen erscheinen in der ausgewählten
+  Grafschaft. Was verfügbar ist, hängt von deiner Rüstungsstufe ab.</td></tr>
+  <tr><th>Bewegung</th><td>Zeigt die Truppen der ausgewählten Grafschaft. Truppen anklicken, dann eine
+  Nachbargrafschaft anklicken (der Mauszeiger wird dort zum Schwert). Eigenes Gebiet = Verlegung, feindliches
+  Gebiet = Angriff. Bis zum Wochenende kannst du jede Bewegung durch erneutes Anklicken zurücknehmen.
+  <kbd>Leertaste</kbd> wählt alle oder keine, <kbd>Rücktaste</kbd> kehrt die Auswahl um.</td></tr>
+  <tr><th>Bauwerke</th><td>Brücken, Türme, Festungen und Burgen reparieren, ausbauen oder neu bauen. Pro Grafschaft
+  läuft immer nur ein Bauauftrag. Ein Klick auf die Sanduhr nimmt den Auftrag zurück.</td></tr>
+  <tr><th>Information</th><td>Rohstoffe, Truppen und Bauwerke der ausgewählten Grafschaft. Für gegnerische
+  Grafschaften brauchst du dort Spione.</td></tr>
+  <tr><th>Verwaltung</th><td>Forschung in zwei Bereichen: <b>Rüstung</b> (bessere und neue Einheiten) und
+  <b>Baukunst</b> (bessere Bauwerke). Teuer und langwierig, aber unverzichtbar.</td></tr>
+</table>
+
+<h3>Das Siegel: die Woche beenden</h3>
+<p>Wenn alle Befehle gegeben sind, klickst du auf das rote <b>Siegel</b> rechts unten. Die Woche endet, alle Aufträge
+werden ausgeführt, und du erfährst, was passiert ist. Verwundete Soldaten erholen sich jede Woche ein wenig.
+Kommt es zum Kampf, wechselt das Spiel auf das Schlachtfeld.</p>
+
+<h2 id="battle">4. Die Schlacht</h2>
+<h3>Sicht und Erkundung</h3>
+<p>In fremden Grafschaften ist die Karte zunächst schwarz. Helle Bereiche sehen deine Soldaten gerade, dunkle wurden
+schon erkundet, zeigen aber keine Gegner. In eigenen Grafschaften (oder wenn Spione eine Karte geliefert haben)
+entfällt das Schwarz. Beim ersten Angriff zeigt die Übersichtskarte dein Ziel; danach erscheinen weitere Ziele nach
+Wichtigkeit. Grenzpfosten aus gekreuzten Brettern markieren die Übergänge zu Nachbargrafschaften: gute Plätze für
+Wachen.</p>
+
+<h3>Mit der Maus führen</h3>
+<table>
+  <tr><th>Auswählen</th><td>Linksklick auf einen Soldaten, oder einen Rahmen um mehrere ziehen. Mit <kbd>Umschalt</kbd>
+  dazunehmen, mit <kbd>Strg</kbd> umkehren.</td></tr>
+  <tr><th>Abwählen</th><td>Rechtsklick.</td></tr>
+  <tr><th>Marschieren</th><td>Linksklick auf eine freie Stelle.</td></tr>
+  <tr><th>Angreifen</th><td>Linksklick auf einen Gegner. Die Angreifer lösen sich dabei aus der Formation.</td></tr>
+  <tr><th>Ansicht bewegen</th><td>Maus an den Bildrand, Pfeiltasten, oder <kbd>Alt</kbd> halten und die Maus bewegen.
+  Oder auf der Übersichtskarte links oben klicken und ziehen.</td></tr>
+  <tr><th>Zoomen <span class="new">NEU</span></th><td>Mausrad: nach vorn näher heran, zurück mehr Überblick (7 Stufen).
+  Der Punkt unter der Maus bleibt stehen.</td></tr>
+  <tr><th>Tore</th><td>Erst alle abwählen (Rechtsklick), dann auf das Tor klicken: öffnet oder schließt es, sofern
+  niemand im Weg steht.</td></tr>
+</table>
+<p>Die grünen Balken unter den ausgewählten Soldaten zeigen ihre Gesundheit.</p>
+
+<h3>Die Befehle in der Seitenleiste</h3>
+<p>Jeder Befehl gilt für die ausgewählten Soldaten. Das Kürzel ist der Anfangsbuchstabe des englischen Namens.</p>
+<table>
+  <tr><th>Befehl</th><th>Taste</th><th>Wirkung</th></tr>
+  <tr><td>Walk (Gehen)</td><td><kbd>W</kbd></td><td>Danach das Ziel anklicken.</td></tr>
+  <tr><td>Attack (Angriff)</td><td><kbd>A</kbd></td><td>Danach einen Gegner anklicken. Ohne Gegner am Ziel wird daraus ein Marsch.</td></tr>
+  <tr><td>Stop</td><td><kbd>S</kbd></td><td>Sofort anhalten und stehen bleiben.</td></tr>
+  <tr><td>Guard (Bewachen)</td><td><kbd>G</kbd></td><td>Ort anklicken. Die Soldaten bleiben dort, auch wenn sie angegriffen werden.</td></tr>
+  <tr><td>Patrol (Streife)</td><td><kbd>P</kbd></td><td>Ort anklicken. Die Soldaten pendeln zwischen dort und ihrem Startpunkt.</td></tr>
+  <tr><td>Flee (Flucht)</td><td><kbd>F</kbd></td><td>Flucht in die am wenigsten bedrohte Richtung.</td></tr>
+  <tr><td>Manoeuvre</td><td><kbd>M</kbd></td><td>Eine Folge von Wegpunkten festlegen: jeweils <kbd>M</kbd> und ein Klick,
+  <kbd>Rücktaste</kbd> löscht den letzten Punkt, <kbd>Enter</kbd> startet.</td></tr>
+  <tr><td>Leave (Rückzug)</td><td><kbd>L</kbd></td><td>Die ganze Armee zieht sich zurück (mit <kbd>Y</kbd>/<kbd>N</kbd> bestätigen).
+  Dabei gehen meist Soldaten verloren.</td></tr>
+  <tr><td>Rat</td><td>–</td><td>Zurück zum Rat (nur wenn du das Schlachtfeld vom Rat aus geöffnet hast).</td></tr>
+</table>
+
+<h3>Laufmodus</h3>
+<p>Mit der <kbd>Leertaste</kbd> (oder dem Knopf „Formation walk“) wechselst du zwischen zwei Arten zu laufen:
+<b>in Formation</b> behalten die Soldaten ihre Aufstellung, gut für lange Wege; <b>Sammeln</b> schickt alle direkt zum
+Zielpunkt, meist besser im Kampf.</p>
+
+<h3>Verhalten</h3>
+<p>Drei Knöpfe legen fest, wie sich Soldaten verhalten, wenn du sie <i>nicht</i> gerade selbst führst:</p>
+<table>
+  <tr><th>Feige (gelber Punkt)</th><td>Flieht schon beim ersten Schaden.</td></tr>
+  <tr><th>Normal (blauer Punkt)</th><td>Standard: flieht erst bei schweren Verletzungen.</td></tr>
+  <tr><th>Berserker (roter Punkt)</th><td>Greift jeden sichtbaren Gegner an und kämpft bis zum Tod; etwas mehr Angriff,
+  etwas weniger Verteidigung.</td></tr>
+</table>
+
+<h2 id="units">5. Die Einheiten</h2>
+<table>
+  <tr><th>Schwertkämpfer</th><td>Günstiges Fußvolk, beweglich auch auf engem Raum. Im Rat in Fünfergruppen ausgebildet und bewegt.</td></tr>
+  <tr><th>Armbrustschützen</th><td>Fernkämpfer, ebenfalls in Fünfergruppen. Halten Reiter auf Abstand; ideal auf Türmen und Mauern.</td></tr>
+  <tr><th>Ritter</th><td>Schnelle, starke Reiter. Kosten im Unterhalt so viel wie fünf Schwertkämpfer.</td></tr>
+  <tr><th>Rammbock</th><td>Billig, bricht aber nur Tore auf, keine Mauern. Bis Katapulte verfügbar sind unverzichtbar.</td></tr>
+  <tr><th>Katapult</th><td>Zerstört Mauern und Tore und schleudert Steine auf Truppen.</td></tr>
+  <tr><th>Kanone</th><td>Wie das Katapult, aber schneller, treffsicherer und mit höherer Feuerrate. Frühe Kanonen können
+  explodieren: eigene Leute fernhalten.</td></tr>
+  <tr><th>Spione</th><td>Erscheinen nie auf dem Schlachtfeld. In eine feindliche Grafschaft schicken; nach einiger Zeit
+  melden sie Rohstoffe, Truppen, Bauwerke und sogar eine Karte. Werden alle gefasst, geht das Wissen verloren.</td></tr>
+</table>
+<p>Fernkämpfer treffen deutlich besser, wenn das Ziel näher als die halbe Reichweite ist. Soldaten, die lange überleben,
+werden Veteranen mit stärkerem Angriff. Schwer verletzte Soldaten laufen langsamer.</p>
+
+<h2 id="buildings">6. Bauwerke</h2>
+<p><b>Brücken</b> (Holz oder Stein), <b>Wachtürme</b> (bis zu vier Schützen), <b>Festungen</b> und <b>Burgen</b>
+(größere Mauern, auf denen Soldaten stehen können, auf Wunsch mit Graben). Große Bauwerke steigern auch die Einnahmen
+der Grafschaft und helfen, feindliche Spione zu enttarnen. Auf Mauern und Türmen sehen und schießen Soldaten weiter;
+auf Burgmauern gelangst du einfach per Klick. Häuser sind undurchdringlich: Wer geschont werden soll, kann sich dort
+verstecken.</p>
+
+<h2 id="keys">7. Tastenbelegung (Schlacht)</h2>
+<table>
+  <tr><th>Taste</th><th>Wirkung</th></tr>
+  <tr><td><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>G</kbd> <kbd>P</kbd> <kbd>F</kbd> <kbd>M</kbd> <kbd>L</kbd></td><td>Gehen, Angriff, Stop, Bewachen, Streife, Flucht, Manöver, Rückzug</td></tr>
+  <tr><td><kbd>Leertaste</kbd></td><td>Laufmodus Formation / Sammeln</td></tr>
+  <tr><td><kbd>Strg</kbd>+<kbd>0</kbd>…<kbd>9</kbd></td><td>Auswahl als Gruppe speichern</td></tr>
+  <tr><td><kbd>0</kbd>…<kbd>9</kbd></td><td>Gruppe auswählen</td></tr>
+  <tr><td><kbd>Umschalt</kbd>+<kbd>0</kbd>…<kbd>9</kbd></td><td>Gruppe zur Auswahl dazunehmen</td></tr>
+  <tr><td><kbd>Strg</kbd>+<kbd>A</kbd></td><td>Alle eigenen Soldaten auswählen</td></tr>
+  <tr><td><kbd>Strg</kbd>+<kbd>V</kbd></td><td>Alle sichtbaren Soldaten auswählen</td></tr>
+  <tr><td><kbd>Strg</kbd>+<kbd>Rücktaste</kbd></td><td>Auswahl umkehren</td></tr>
+  <tr><td><kbd>Strg</kbd>+<kbd>S</kbd> / <kbd>C</kbd> / <kbd>K</kbd> / <kbd>J</kbd> / <kbd>T</kbd> / <kbd>N</kbd></td><td>Sichtbare Schwertkämpfer / Armbrustschützen / Ritter / Rammböcke / Katapulte / Kanonen auswählen (mit <kbd>Umschalt</kbd>: alle auf der Karte dazu)</td></tr>
+  <tr><td><kbd>Strg</kbd>+<kbd>←</kbd> / <kbd>→</kbd></td><td>Vorheriger / nächster Soldat</td></tr>
+  <tr><td><kbd>Strg</kbd>+<kbd>↑</kbd> / <kbd>↓</kbd></td><td>Ansicht auf diesen Soldaten</td></tr>
+  <tr><td><kbd>Tab</kbd></td><td>Ansicht folgt der Auswahl</td></tr>
+  <tr><td><kbd>Strg</kbd>+<kbd>F2</kbd>…<kbd>F8</kbd> / <kbd>F2</kbd>…<kbd>F8</kbd></td><td>Kartenposition merken / dorthin springen</td></tr>
+  <tr><td><kbd>Pause</kbd></td><td>Spiel anhalten</td></tr>
+  <tr><td><kbd>F1</kbd>, <kbd>Strg</kbd>+<kbd>H</kbd></td><td>Eingebaute Hilfe</td></tr>
+  <tr><td><kbd>Esc</kbd></td><td>Zurück ins Hauptmenü (im Hauptmenü: markiert „Exit“)</td></tr>
+  <tr><td>Mausrad <span class="new">NEU</span></td><td>Zoomen</td></tr>
+  <tr><td><kbd>Alt</kbd>+<kbd>Enter</kbd></td><td>Fenster / Vollbild</td></tr>
+</table>
+<p><b>Im Rat:</b> Die Pfeiltasten wählen eine Grafschaft, <kbd>I</kbd> öffnet ihr Schlachtfeld; im Reiter Bewegung
+<kbd>Leertaste</kbd> = alle/keine, <kbd>Rücktaste</kbd> = Auswahl umkehren.</p>
+
+<h2 id="new">8. Neu in dieser Fassung</h2>
+<ul>
+  <li><b>Großes Schlachtfeld in 16:9</b> mit <b>Mausrad-Zoom</b> in 7 Stufen; die Seitenleiste behält immer ihre Größe.</li>
+  <li><b>Einheiten-Knöpfe</b> unter dem Infofeld: Ein Klick wählt alle lebenden Einheiten dieses Typs auf der ganzen Karte,
+  <kbd>Umschalt</kbd>+Klick nimmt sie dazu. Die Zahl zeigt, wie viele noch leben.</li>
+  <li><b>Gruppen-Knöpfe 1–9 und 0</b>: Ein Klick wählt die Gruppe, <kbd>Umschalt</kbd>+Klick nimmt sie dazu,
+  <kbd>Strg</kbd>+Klick speichert die Auswahl als diese Gruppe (dieselben Gruppen wie die Zifferntasten).</li>
+  <li>Menüs und Strategiekarte mit weichgezeichneten Seitenrändern, Videos ohne schwarze Zeilen, keine CD nötig.</li>
+</ul>
+
+<h2 id="tips">9. Tipps für den Anfang</h2>
+<ul>
+  <li><b>Armbrustschützen</b> sind die beste Verteidigung: auf Türme und Burgmauern stellen und auf Berserker schalten.</li>
+  <li>Früh in die <b>Rüstung</b> investieren: Ohne Katapulte und Kanonen hast du gegen die großen Burgen des Sultans keine Chance.</li>
+  <li>Große Armeen in <b>Formation</b> bewegen. Wird das Spiel bei vielen Einheiten langsam, alle wählen
+  (<kbd>Strg</kbd>+<kbd>A</kbd>), mit <kbd>S</kbd> anhalten und in Formation neu losschicken.</li>
+  <li><b>Getreide</b> im Blick behalten: Ohne Versorgung desertieren deine Leute.</li>
+  <li>Vor einem Angriff <b>Spione</b> schicken: Mit ihrer Karte siehst du die Gegner schon beim Anmarsch.</li>
+  <li>Grenzpfosten, Brücken und Pässe besetzen, wo du den nächsten Angriff erwartest.</li>
+</ul>
+
+<footer>Eine eigenständige Zusammenfassung für die modernisierte Fassung. <i>Vlad Tepes Dracula</i> © 1997 Computer House.
+Wenn du mit dem Launcher von CD installiert hast, liegt das englische Original-Handbuch als <code>MANUAL.PDF</code> im
+Spielordner.</footer>
+</main></body></html>

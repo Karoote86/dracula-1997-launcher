@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Vlad Tepes Dracula – Poradnik do gry</title>
+<style>
+  :root { --ink:#2b2118; --paper:#f4ecdc; --rule:#c9b89a; --accent:#8b1a1a; --muted:#6d5f4d; }
+  body { margin:0; background:#e6dcc6; color:var(--ink); font:16px/1.55 Georgia, "Book Antiqua", serif; }
+  main { max-width:860px; margin:0 auto; padding:32px 40px 64px; background:var(--paper); min-height:100vh; box-sizing:border-box; }
+  h1 { font-size:2.1em; color:var(--accent); margin:0 0 4px; letter-spacing:.5px; }
+  .sub { color:var(--muted); margin:0 0 24px; }
+  h2 { color:var(--accent); border-bottom:1px solid var(--rule); padding-bottom:4px; margin-top:40px; }
+  h3 { margin:24px 0 6px; }
+  nav { background:#ebe1cb; border:1px solid var(--rule); padding:12px 20px; border-radius:4px; }
+  nav ol { margin:0; padding-left:20px; columns:2; }
+  nav a, a { color:var(--accent); }
+  table { border-collapse:collapse; width:100%; margin:8px 0 16px; font-size:.95em; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  th { background:#ebe1cb; }
+  kbd { font:13px/1 Consolas, monospace; background:#fff; border:1px solid #b9a888; border-bottom-width:2px; border-radius:3px; padding:2px 6px; white-space:nowrap; }
+  .tip { background:#efe3c8; border-left:4px solid var(--accent); padding:8px 14px; margin:14px 0; }
+  .new { display:inline-block; font:bold 11px sans-serif; color:#fff; background:var(--accent); border-radius:3px; padding:1px 5px; vertical-align:middle; }
+  footer { margin-top:48px; color:var(--muted); font-size:.85em; }
+</style>
+</head>
+<body><main>
+<h1>Vlad Tepes Dracula</h1>
+<p class="sub">Poradnik do zmodernizowanej wersji – podstawy, przebieg gry i sterowanie</p>
+
+<nav><ol>
+  <li><a href="#about">O co chodzi?</a></li>
+  <li><a href="#start">Pierwsze kroki</a></li>
+  <li><a href="#council">Rada (mapa strategiczna)</a></li>
+  <li><a href="#battle">Bitwy</a></li>
+  <li><a href="#units">Jednostki</a></li>
+  <li><a href="#buildings">Budowle</a></li>
+  <li><a href="#keys">Sterowanie klawiaturą</a></li>
+  <li><a href="#new">Nowości w tej wersji</a></li>
+  <li><a href="#tips">Wskazówki na początek</a></li>
+</ol></nav>
+
+<h2 id="about">1. O co chodzi?</h2>
+<p>Wołoszczyzna, rok 1456: kraj jest podzielony na dwanaście hrabstw, w większości opanowanych przez armię osmańską.
+Jako Vlad Dracula stajesz na czele ruchu oporu i odbijasz kraj hrabstwo po hrabstwie.</p>
+<p>Gra ma dwa poziomy, między którymi ciągle się przełączasz:</p>
+<ul>
+  <li><b>Rada</b> to turowa mapa strategiczna. Jedna tura to jeden tydzień. Tutaj zarządzasz surowcami, szkolisz
+  wojsko, budujesz umocnienia i wysyłasz armie do sąsiednich hrabstw.</li>
+  <li><b>Bitwy</b> toczą się w czasie rzeczywistym. Gdy atakujesz lub jesteś atakowany, walczysz na mapie danego hrabstwa
+  i sam kierujesz każdym żołnierzem.</li>
+</ul>
+
+<h2 id="start">2. Pierwsze kroki</h2>
+<p>Menu główne oferuje:</p>
+<table>
+  <tr><th>Engage</th><td>Rozpoczęcie gry. Jeśli gra już trwa, możesz ją kontynuować, zacząć od nowa albo wrócić.</td></tr>
+  <tr><th>Load / Save</th><td>Wczytanie lub zapis gry. Wybierz miejsce, przy zapisie wpisz nazwę,
+  zatwierdź klawiszem <kbd>Enter</kbd>, anuluj klawiszem <kbd>Esc</kbd>.</td></tr>
+  <tr><th>Introduction</th><td>Ponownie odtwarza film wprowadzający. Dowolny klawisz go przerywa.</td></tr>
+  <tr><th>Options</th><td>Głośność efektów i muzyki, jasność/kolor/kontrast, tempo gry i szybkość przewijania.
+  <kbd>D</kbd> przywraca ustawienia domyślne.</td></tr>
+  <tr><th>Exit</th><td>Kończy grę. Zawsze wychodź w ten sposób, a nie przez Alt+F4.</td></tr>
+</table>
+<div class="tip">Gra ma wbudowaną pomoc ze wszystkimi skrótami: <kbd>F1</kbd> lub <kbd>Ctrl</kbd>+<kbd>H</kbd>
+(albo kliknięcie pola pomocy u dołu panelu bocznego). Przewijaj strzałkami i Page Up/Down, <kbd>Esc</kbd> ją zamyka.</div>
+
+<h2 id="council">3. Rada (mapa strategiczna)</h2>
+<h3>Mapa</h3>
+<p>Hrabstwa zabarwione na brązowo należą do wroga, pozostałe do ciebie. Jedno hrabstwo jest zawsze <b>wybrane</b>
+(podświetlone) i wszystkie rozkazy Rady dotyczą właśnie jego. Wybierasz je kliknięciem lub strzałkami.
+Podwójne kliknięcie własnego hrabstwa (lub <kbd>I</kbd>) otwiera jego pole bitwy: możesz wtedy ustawić wojska przed
+atakiem albo obejrzeć teren. Niebieskie strzałki pokazują ruchy twoich wojsk.</p>
+
+<h3>Surowce</h3>
+<p>Na dole pośrodku widzisz pięć wartości: aktualny zapas, a pod nim zmianę na tydzień:</p>
+<table>
+  <tr><th>Złoto</th><td>Opłaca szkolenie, budowę i badania.</td></tr>
+  <tr><th>Zboże</th><td>Każdy żołnierz zjada jedną jednostkę tygodniowo. Gdy brakuje utrzymania, wojsko dezerteruje.</td></tr>
+  <tr><th>Materiały budowlane</th><td>Potrzebne do budowli.</td></tr>
+  <tr><th>Rekruci</th><td>Mężczyźni, z których można wyszkolić nowe oddziały.</td></tr>
+  <tr><th>Armia</th><td>Twoja całkowita siła zbrojna.</td></tr>
+</table>
+<p>Kliknięcie obrazka surowca pokazuje lub ukrywa wykres zmian.</p>
+
+<h3>Zakładki po lewej</h3>
+<table>
+  <tr><th>Szkolenie</th><td>Szkolenie wojska. Lista pokazuje koszt, czas w tygodniach i parametry bojowe
+  (obrażenia, celność, pancerz, wytrzymałość, szybkość, zasięg). Nowe oddziały pojawiają się w wybranym hrabstwie.
+  Dostępność zależy od twojego poziomu uzbrojenia.</td></tr>
+  <tr><th>Ruchy</th><td>Pokazuje wojska wybranego hrabstwa. Kliknij oddziały, a potem sąsiednie hrabstwo (kursor zmienia się
+  tam w miecz). Własne hrabstwo = przemarsz, wrogie hrabstwo = atak. Do końca tygodnia możesz cofnąć każdy ruch,
+  klikając ponownie oddział. <kbd>Spacja</kbd> zaznacza wszystko lub nic, <kbd>Backspace</kbd> odwraca zaznaczenie.</td></tr>
+  <tr><th>Budowle</th><td>Naprawa, rozbudowa lub budowa mostów, wież, fortyfikacji i twierdz. W każdym hrabstwie może trwać
+  tylko jedna budowa naraz. Kliknięcie klepsydry anuluje zlecenie.</td></tr>
+  <tr><th>Informacje</th><td>Surowce, wojska i budowle wybranego hrabstwa. Dla hrabstw wroga potrzebujesz tam szpiegów.</td></tr>
+  <tr><th>Administracja</th><td>Badania w dwóch dziedzinach: <b>Uzbrojenie</b> (lepsze i nowe jednostki) oraz
+  <b>Architektura</b> (lepsze budowle). Drogie i powolne, ale niezbędne.</td></tr>
+</table>
+
+<h3>Pieczęć: koniec tygodnia</h3>
+<p>Gdy wydasz wszystkie rozkazy, kliknij czerwoną <b>pieczęć</b> w prawym dolnym rogu. Tydzień się kończy, rozkazy zostają
+wykonane, a ty dowiadujesz się, co się wydarzyło. Ranni co tydzień trochę zdrowieją. Jeśli dojdzie do walki, gra przechodzi
+na pole bitwy.</p>
+
+<h2 id="battle">4. Bitwy</h2>
+<h3>Widoczność i zwiad</h3>
+<p>W obcych hrabstwach mapa jest na początku czarna. Jasne obszary to to, co twoi żołnierze widzą teraz; ciemne zostały
+już zbadane, ale nie pokazują wrogów. We własnych hrabstwach (albo gdy szpiedzy dostarczyli mapę) czerni nie ma. Przy
+pierwszym ataku mapa przeglądowa pokazuje twój cel; później pojawiają się kolejne cele według ważności. Słupy graniczne
+z krzyżowanych desek oznaczają przejścia do sąsiednich hrabstw: dobre miejsca na straże.</p>
+
+<h3>Dowodzenie myszą</h3>
+<table>
+  <tr><th>Zaznaczanie</th><td>Lewy klik na żołnierzu lub obrysowanie ramką kilku. <kbd>Shift</kbd> dodaje,
+  <kbd>Ctrl</kbd> odwraca.</td></tr>
+  <tr><th>Odznaczanie</th><td>Prawy klik.</td></tr>
+  <tr><th>Marsz</th><td>Lewy klik na wolnym miejscu.</td></tr>
+  <tr><th>Atak</th><td>Lewy klik na wrogu. Atakujący wychodzą z szyku.</td></tr>
+  <tr><th>Przewijanie widoku</th><td>Mysz przy krawędzi ekranu, strzałki albo przytrzymanie <kbd>Alt</kbd> i ruch myszą.
+  Albo kliknięcie i przeciągnięcie na mapie przeglądowej w lewym górnym rogu.</td></tr>
+  <tr><th>Zoom <span class="new">NOWOŚĆ</span></th><td>Kółko myszy: do przodu przybliża, do tyłu oddala (7 poziomów).
+  Punkt pod kursorem zostaje na miejscu.</td></tr>
+  <tr><th>Bramy</th><td>Najpierw odznacz wszystkich (prawy klik), potem kliknij bramę, aby ją otworzyć lub zamknąć,
+  jeśli nikt nie stoi na drodze.</td></tr>
+</table>
+<p>Zielone paski pod zaznaczonymi żołnierzami pokazują ich zdrowie.</p>
+
+<h3>Rozkazy w panelu bocznym</h3>
+<p>Każdy rozkaz dotyczy zaznaczonych żołnierzy. Skrót to pierwsza litera angielskiej nazwy.</p>
+<table>
+  <tr><th>Rozkaz</th><th>Klawisz</th><th>Działanie</th></tr>
+  <tr><td>Walk (Marsz)</td><td><kbd>W</kbd></td><td>Następnie kliknij cel.</td></tr>
+  <tr><td>Attack (Atak)</td><td><kbd>A</kbd></td><td>Następnie kliknij wroga. Bez wroga w celu staje się to marszem.</td></tr>
+  <tr><td>Stop</td><td><kbd>S</kbd></td><td>Natychmiast się zatrzymać i stać.</td></tr>
+  <tr><td>Guard (Straż)</td><td><kbd>G</kbd></td><td>Kliknij miejsce. Żołnierze zostają tam, nawet gdy są atakowani.</td></tr>
+  <tr><td>Patrol</td><td><kbd>P</kbd></td><td>Kliknij miejsce. Żołnierze chodzą tam i z powrotem między nim a punktem startu.</td></tr>
+  <tr><td>Flee (Ucieczka)</td><td><kbd>F</kbd></td><td>Ucieczka w najmniej zagrożonym kierunku.</td></tr>
+  <tr><td>Manoeuvre</td><td><kbd>M</kbd></td><td>Wyznacz serię punktów trasy: <kbd>M</kbd> i kliknięcie dla każdego,
+  <kbd>Backspace</kbd> usuwa ostatni, <kbd>Enter</kbd> rozpoczyna.</td></tr>
+  <tr><td>Leave (Odwrót)</td><td><kbd>L</kbd></td><td>Cała armia się wycofuje (potwierdź <kbd>Y</kbd>/<kbd>N</kbd>).
+  Zwykle traci się przy tym żołnierzy.</td></tr>
+  <tr><td>Rada</td><td>–</td><td>Powrót do Rady (tylko gdy pole bitwy otwarto z Rady).</td></tr>
+</table>
+
+<h3>Tryb marszu</h3>
+<p><kbd>Spacja</kbd> (lub przycisk „Formation walk”) przełącza między dwoma sposobami marszu: <b>w szyku</b> żołnierze
+zachowują ustawienie, dobre na długie dystanse; <b>zbiórka</b> wysyła wszystkich prosto do klikniętego punktu, zwykle
+lepsze w walce.</p>
+
+<h3>Zachowanie</h3>
+<p>Trzy przyciski określają, jak żołnierze zachowują się, gdy <i>nie</i> kierujesz nimi bezpośrednio:</p>
+<table>
+  <tr><th>Tchórz (żółta kropka)</th><td>Ucieka przy pierwszych obrażeniach.</td></tr>
+  <tr><th>Normalny (niebieska kropka)</th><td>Domyślnie: ucieka dopiero ciężko ranny.</td></tr>
+  <tr><th>Berserker (czerwona kropka)</th><td>Atakuje każdego widocznego wroga i walczy do śmierci; trochę więcej ataku,
+  trochę mniej obrony.</td></tr>
+</table>
+
+<h2 id="units">5. Jednostki</h2>
+<table>
+  <tr><th>Miecznicy</th><td>Tania piechota, zwinna nawet w ciasnych miejscach. W Radzie szkoleni i przemieszczani w grupach po pięciu.</td></tr>
+  <tr><th>Kusznicy</th><td>Strzelcy, także w grupach po pięciu. Trzymają jeźdźców na dystans; idealni na wieżach i murach.</td></tr>
+  <tr><th>Rycerz</th><td>Szybki, silny jeździec. Jego utrzymanie kosztuje tyle co pięciu mieczników.</td></tr>
+  <tr><th>Taran</th><td>Tani; wyważa bramy, ale nie mury. Niezbędny, dopóki nie ma katapult.</td></tr>
+  <tr><th>Katapulta</th><td>Niszczy mury i bramy oraz miota kamienie w wojska.</td></tr>
+  <tr><th>Armata</th><td>Jak katapulta, ale szybsza, celniejsza i strzela częściej. Pierwsze armaty mogą wybuchnąć:
+  trzymaj swoich ludzi z daleka.</td></tr>
+  <tr><th>Szpiedzy</th><td>Nigdy nie pojawiają się na polu bitwy. Wyślij ich do wrogiego hrabstwa; po pewnym czasie donoszą
+  o surowcach, wojskach, budowlach, a nawet dostarczają mapę. Gdy wszyscy zostaną schwytani, ta wiedza przepada.</td></tr>
+</table>
+<p>Jednostki strzeleckie trafiają znacznie lepiej, gdy cel jest bliżej niż połowa ich zasięgu. Żołnierze, którzy długo
+przeżyją, stają się weteranami z silniejszym atakiem. Ciężko ranni żołnierze poruszają się wolniej.</p>
+
+<h2 id="buildings">6. Budowle</h2>
+<p><b>Mosty</b> (drewniane lub kamienne), <b>wieże strażnicze</b> (do czterech strzelców), <b>fortyfikacje</b> i
+<b>twierdze</b> (wyższe mury, na których mogą stać żołnierze, opcjonalnie z fosą). Duże budowle zwiększają też dochody
+hrabstwa i pomagają demaskować wrogich szpiegów. Na murach i wieżach żołnierze widzą i strzelają dalej; na mury twierdzy
+wchodzi się zwykłym kliknięciem. Domy są nieprzekraczalne: żołnierze, których chcesz oszczędzić, mogą się w nich schować.</p>
+
+<h2 id="keys">7. Sterowanie klawiaturą (bitwa)</h2>
+<table>
+  <tr><th>Klawisz</th><th>Działanie</th></tr>
+  <tr><td><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>G</kbd> <kbd>P</kbd> <kbd>F</kbd> <kbd>M</kbd> <kbd>L</kbd></td><td>Marsz, Atak, Stop, Straż, Patrol, Ucieczka, Manewr, Odwrót</td></tr>
+  <tr><td><kbd>Spacja</kbd></td><td>Tryb marszu szyk / zbiórka</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>0</kbd>…<kbd>9</kbd></td><td>Zapisz zaznaczenie jako grupę</td></tr>
+  <tr><td><kbd>0</kbd>…<kbd>9</kbd></td><td>Wybierz grupę</td></tr>
+  <tr><td><kbd>Shift</kbd>+<kbd>0</kbd>…<kbd>9</kbd></td><td>Dodaj grupę do zaznaczenia</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>A</kbd></td><td>Zaznacz wszystkich swoich żołnierzy</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>V</kbd></td><td>Zaznacz wszystkich widocznych żołnierzy</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>Backspace</kbd></td><td>Odwróć zaznaczenie</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd> / <kbd>C</kbd> / <kbd>K</kbd> / <kbd>J</kbd> / <kbd>T</kbd> / <kbd>N</kbd></td><td>Zaznacz widocznych mieczników / kuszników / rycerzy / tarany / katapulty / armaty (z <kbd>Shift</kbd>: dodaj wszystkich na mapie)</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>←</kbd> / <kbd>→</kbd></td><td>Poprzedni / następny żołnierz</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>↑</kbd> / <kbd>↓</kbd></td><td>Przenieś widok na tego żołnierza</td></tr>
+  <tr><td><kbd>Tab</kbd></td><td>Widok podąża za zaznaczeniem</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>F2</kbd>…<kbd>F8</kbd> / <kbd>F2</kbd>…<kbd>F8</kbd></td><td>Zapamiętaj pozycję na mapie / przejdź do niej</td></tr>
+  <tr><td><kbd>Pause</kbd></td><td>Pauza</td></tr>
+  <tr><td><kbd>F1</kbd>, <kbd>Ctrl</kbd>+<kbd>H</kbd></td><td>Wbudowana pomoc</td></tr>
+  <tr><td><kbd>Esc</kbd></td><td>Powrót do menu głównego (w menu głównym: podświetla „Exit”)</td></tr>
+  <tr><td>Kółko myszy <span class="new">NOWOŚĆ</span></td><td>Zoom</td></tr>
+  <tr><td><kbd>Alt</kbd>+<kbd>Enter</kbd></td><td>Okno / pełny ekran</td></tr>
+</table>
+<p><b>W Radzie:</b> strzałki wybierają hrabstwo, <kbd>I</kbd> otwiera jego pole bitwy; w zakładce Ruchy
+<kbd>Spacja</kbd> = wszystko/nic, <kbd>Backspace</kbd> = odwróć zaznaczenie.</p>
+
+<h2 id="new">8. Nowości w tej wersji</h2>
+<ul>
+  <li><b>Duże pole bitwy 16:9</b> z <b>zoomem kółkiem myszy</b> w 7 poziomach; panel boczny zawsze zachowuje swój rozmiar.</li>
+  <li><b>Przyciski typów jednostek</b> pod polem informacji: kliknięcie zaznacza wszystkie żywe jednostki tego typu na całej
+  mapie, <kbd>Shift</kbd>+klik je dodaje. Liczba pokazuje, ile jeszcze żyje.</li>
+  <li><b>Przyciski grup 1–9 i 0</b>: kliknięcie wybiera grupę, <kbd>Shift</kbd>+klik ją dodaje,
+  <kbd>Ctrl</kbd>+klik zapisuje zaznaczenie jako tę grupę (te same grupy co klawisze cyfr).</li>
+  <li>Menu i mapa strategiczna z rozmytymi pasami bocznymi, filmy bez czarnych linii, płyta CD niepotrzebna.</li>
+</ul>
+
+<h2 id="tips">9. Wskazówki na początek</h2>
+<ul>
+  <li><b>Kusznicy</b> to najlepsza obrona: ustaw ich na wieżach i murach twierdz i przełącz na berserkera.</li>
+  <li>Wcześnie inwestuj w <b>uzbrojenie</b>: bez katapult i armat nie masz szans z wielkimi twierdzami sułtana.</li>
+  <li>Duże armie przemieszczaj <b>w szyku</b>. Gdy przy wielu jednostkach gra zwalnia, zaznacz wszystkich
+  (<kbd>Ctrl</kbd>+<kbd>A</kbd>), zatrzymaj ich klawiszem <kbd>S</kbd> i wyślij ponownie w szyku.</li>
+  <li>Pilnuj <b>zboża</b>: bez zaopatrzenia twoi ludzie dezerterują.</li>
+  <li>Przed atakiem wyślij <b>szpiegów</b>: dzięki ich mapie widzisz wroga już podczas podejścia.</li>
+  <li>Obsadzaj słupy graniczne, mosty i przełęcze tam, gdzie spodziewasz się kolejnego ataku.</li>
+</ul>
+
+<footer>Samodzielne streszczenie napisane dla zmodernizowanej wersji. <i>Vlad Tepes Dracula</i> © 1997 Computer House.
+Jeśli zainstalowałeś grę z płyty za pomocą launchera, oryginalna instrukcja (po angielsku) znajduje się w folderze gry jako
+<code>MANUAL.PDF</code>.</footer>
+</main></body></html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Vlad Tepes Dracula – Guía del juego</title>
+<style>
+  :root { --ink:#2b2118; --paper:#f4ecdc; --rule:#c9b89a; --accent:#8b1a1a; --muted:#6d5f4d; }
+  body { margin:0; background:#e6dcc6; color:var(--ink); font:16px/1.55 Georgia, "Book Antiqua", serif; }
+  main { max-width:860px; margin:0 auto; padding:32px 40px 64px; background:var(--paper); min-height:100vh; box-sizing:border-box; }
+  h1 { font-size:2.1em; color:var(--accent); margin:0 0 4px; letter-spacing:.5px; }
+  .sub { color:var(--muted); margin:0 0 24px; }
+  h2 { color:var(--accent); border-bottom:1px solid var(--rule); padding-bottom:4px; margin-top:40px; }
+  h3 { margin:24px 0 6px; }
+  nav { background:#ebe1cb; border:1px solid var(--rule); padding:12px 20px; border-radius:4px; }
+  nav ol { margin:0; padding-left:20px; columns:2; }
+  nav a, a { color:var(--accent); }
+  table { border-collapse:collapse; width:100%; margin:8px 0 16px; font-size:.95em; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  th { background:#ebe1cb; }
+  kbd { font:13px/1 Consolas, monospace; background:#fff; border:1px solid #b9a888; border-bottom-width:2px; border-radius:3px; padding:2px 6px; white-space:nowrap; }
+  .tip { background:#efe3c8; border-left:4px solid var(--accent); padding:8px 14px; margin:14px 0; }
+  .new { display:inline-block; font:bold 11px sans-serif; color:#fff; background:var(--accent); border-radius:3px; padding:1px 5px; vertical-align:middle; }
+  footer { margin-top:48px; color:var(--muted); font-size:.85em; }
+</style>
+</head>
+<body><main>
+<h1>Vlad Tepes Dracula</h1>
+<p class="sub">Guía del juego para la versión modernizada – conceptos básicos, desarrollo y controles</p>
+
+<nav><ol>
+  <li><a href="#about">¿De qué trata?</a></li>
+  <li><a href="#start">Primeros pasos</a></li>
+  <li><a href="#council">El Consejo (mapa estratégico)</a></li>
+  <li><a href="#battle">Las batallas</a></li>
+  <li><a href="#units">Las unidades</a></li>
+  <li><a href="#buildings">Construcciones</a></li>
+  <li><a href="#keys">Controles de teclado</a></li>
+  <li><a href="#new">Novedades de esta versión</a></li>
+  <li><a href="#tips">Consejos para empezar</a></li>
+</ol></nav>
+
+<h2 id="about">1. ¿De qué trata?</h2>
+<p>Valaquia, 1456: el país está dividido en doce condados, la mayoría en manos del ejército otomano. Como Vlad Dracula,
+diriges la resistencia y reconquistas el país condado a condado.</p>
+<p>El juego tiene dos niveles entre los que cambias continuamente:</p>
+<ul>
+  <li><b>El Consejo</b> es el mapa estratégico por turnos. Un turno es una semana. Aquí gestionas los recursos, entrenas
+  tropas, construyes fortificaciones y envías ejércitos a los condados vecinos.</li>
+  <li><b>Las batallas</b> transcurren en tiempo real. Cuando atacas o te atacan, luchas en el mapa de ese condado y
+  diriges a cada soldado tú mismo.</li>
+</ul>
+
+<h2 id="start">2. Primeros pasos</h2>
+<p>El menú principal ofrece:</p>
+<table>
+  <tr><th>Engage</th><td>Empezar una partida. Si ya hay una en curso, puedes continuarla, empezar de nuevo o volver.</td></tr>
+  <tr><th>Load / Save</th><td>Cargar o guardar una partida. Elige una ranura, escribe un nombre al guardar,
+  confirma con <kbd>Intro</kbd> y cancela con <kbd>Esc</kbd>.</td></tr>
+  <tr><th>Introduction</th><td>Vuelve a mostrar el vídeo de introducción. Cualquier tecla lo detiene.</td></tr>
+  <tr><th>Options</th><td>Volumen de efectos y música, brillo/color/contraste, velocidad del juego y velocidad de
+  desplazamiento. <kbd>D</kbd> lo restablece todo.</td></tr>
+  <tr><th>Exit</th><td>Sale del juego. Sal siempre así y no con Alt+F4.</td></tr>
+</table>
+<div class="tip">El juego incluye una ayuda con todos los atajos: <kbd>F1</kbd> o <kbd>Ctrl</kbd>+<kbd>H</kbd>
+(o un clic en el cuadro de ayuda al pie del panel lateral). Desplázate con las flechas y Re Pág/Av Pág,
+<kbd>Esc</kbd> la cierra.</div>
+
+<h2 id="council">3. El Consejo (mapa estratégico)</h2>
+<h3>El mapa</h3>
+<p>Los condados sombreados en marrón pertenecen al enemigo; los demás son tuyos. Siempre hay un condado <b>seleccionado</b>
+(resaltado), y todas las órdenes del Consejo se aplican a él. Selecciona uno con un clic o con las flechas.
+Haz doble clic en uno de tus condados (o pulsa <kbd>I</kbd>) para abrir su campo de batalla: así puedes colocar tus
+tropas antes de un ataque o ver el terreno. Las flechas azules muestran tus movimientos de tropas.</p>
+
+<h3>Recursos</h3>
+<p>Abajo en el centro ves cinco valores, cada uno con la reserva actual y, debajo, el cambio por semana:</p>
+<table>
+  <tr><th>Oro</th><td>Paga el entrenamiento, la construcción y la investigación.</td></tr>
+  <tr><th>Grano</th><td>Cada soldado come una unidad por semana. Si falta el sustento, las tropas desertan.</td></tr>
+  <tr><th>Material de construcción</th><td>Necesario para las construcciones.</td></tr>
+  <tr><th>Reclutas</th><td>Hombres disponibles para entrenar nuevas tropas.</td></tr>
+  <tr><th>Ejército</th><td>Tu fuerza militar total.</td></tr>
+</table>
+<p>Haz clic en la imagen de un recurso para mostrar u ocultar un gráfico histórico.</p>
+
+<h3>Las pestañas de la izquierda</h3>
+<table>
+  <tr><th>Entrenamiento</th><td>Entrenar tropas. La lista muestra coste, duración en semanas y valores de combate
+  (daño, precisión, armadura, aguante, velocidad, alcance). Las tropas nuevas aparecen en el condado seleccionado.
+  Lo disponible depende de tu nivel de armamento.</td></tr>
+  <tr><th>Movimientos</th><td>Muestra las tropas del condado seleccionado. Haz clic en tropas y luego en un condado vecino
+  (allí el cursor se convierte en una espada). Condado propio = traslado, condado enemigo = ataque. Hasta que acabe la
+  semana puedes deshacer cualquier movimiento haciendo clic de nuevo en la tropa. <kbd>Espacio</kbd> selecciona todo o
+  nada, <kbd>Retroceso</kbd> invierte la selección.</td></tr>
+  <tr><th>Construcciones</th><td>Reparar, mejorar o construir puentes, torres, fortificaciones y fortalezas. Solo una obra
+  por condado a la vez. Un clic en el reloj de arena cancela la obra.</td></tr>
+  <tr><th>Información</th><td>Recursos, tropas y edificios del condado seleccionado. Para condados enemigos necesitas
+  espías allí.</td></tr>
+  <tr><th>Administración</th><td>Investigación en dos áreas: <b>Armamento</b> (unidades mejores y nuevas) y
+  <b>Arquitectura</b> (mejores edificios). Cara y lenta, pero imprescindible.</td></tr>
+</table>
+
+<h3>El sello: terminar la semana</h3>
+<p>Cuando hayas dado todas las órdenes, haz clic en el <b>sello</b> rojo abajo a la derecha. La semana termina, se cumplen
+todas las órdenes y te informan de lo ocurrido. Los heridos se recuperan un poco cada semana. Si estalla un combate,
+el juego pasa al campo de batalla.</p>
+
+<h2 id="battle">4. Las batallas</h2>
+<h3>Visión y exploración</h3>
+<p>En condados ajenos, el mapa empieza en negro. Las zonas claras son lo que tus soldados ven ahora; las oscuras ya se
+exploraron, pero no muestran enemigos. En tus propios condados (o cuando los espías han entregado un mapa) no hay negro.
+En el primer ataque, el mapa general muestra tu objetivo; después aparecen otros objetivos por orden de importancia.
+Los mojones de tablas cruzadas marcan los pasos a los condados vecinos: buenos lugares para centinelas.</p>
+
+<h3>Mandar con el ratón</h3>
+<table>
+  <tr><th>Seleccionar</th><td>Clic izquierdo en un soldado, o arrastra un recuadro alrededor de varios. <kbd>Mayús</kbd>
+  añade, <kbd>Ctrl</kbd> invierte.</td></tr>
+  <tr><th>Deseleccionar</th><td>Clic derecho.</td></tr>
+  <tr><th>Moverse</th><td>Clic izquierdo en un lugar libre.</td></tr>
+  <tr><th>Atacar</th><td>Clic izquierdo en un enemigo. Los atacantes abandonan la formación.</td></tr>
+  <tr><th>Desplazar la vista</th><td>Ratón al borde de la pantalla, flechas, o mantén <kbd>Alt</kbd> y mueve el ratón.
+  O haz clic y arrastra en el mapa general de arriba a la izquierda.</td></tr>
+  <tr><th>Zoom <span class="new">NUEVO</span></th><td>Rueda del ratón: hacia delante para acercar, hacia atrás para una vista
+  más amplia (7 niveles). El punto bajo el cursor se queda quieto.</td></tr>
+  <tr><th>Puertas</th><td>Primero deselecciona a todos (clic derecho) y luego haz clic en la puerta para abrirla o
+  cerrarla, si nadie estorba.</td></tr>
+</table>
+<p>Las barras verdes bajo los soldados seleccionados muestran su salud.</p>
+
+<h3>Órdenes del panel lateral</h3>
+<p>Cada orden se aplica a los soldados seleccionados. El atajo es la primera letra del nombre en inglés.</p>
+<table>
+  <tr><th>Orden</th><th>Tecla</th><th>Efecto</th></tr>
+  <tr><td>Walk (Andar)</td><td><kbd>W</kbd></td><td>Después haz clic en el destino.</td></tr>
+  <tr><td>Attack (Atacar)</td><td><kbd>A</kbd></td><td>Después haz clic en un enemigo. Sin enemigo en el destino se convierte en una marcha.</td></tr>
+  <tr><td>Stop</td><td><kbd>S</kbd></td><td>Detenerse de inmediato y quedarse quieto.</td></tr>
+  <tr><td>Guard (Vigilar)</td><td><kbd>G</kbd></td><td>Haz clic en un lugar. Los soldados se quedan allí aunque los ataquen.</td></tr>
+  <tr><td>Patrol (Patrullar)</td><td><kbd>P</kbd></td><td>Haz clic en un lugar. Los soldados van y vienen entre él y su punto de partida.</td></tr>
+  <tr><td>Flee (Huir)</td><td><kbd>F</kbd></td><td>Huir en la dirección menos amenazada.</td></tr>
+  <tr><td>Manoeuvre</td><td><kbd>M</kbd></td><td>Fija una serie de puntos de paso: <kbd>M</kbd> y un clic para cada uno,
+  <kbd>Retroceso</kbd> borra el último, <kbd>Intro</kbd> inicia.</td></tr>
+  <tr><td>Leave (Retirada)</td><td><kbd>L</kbd></td><td>Todo el ejército se retira (confirma con <kbd>Y</kbd>/<kbd>N</kbd>).
+  Normalmente se pierden soldados.</td></tr>
+  <tr><td>Consejo</td><td>–</td><td>Volver al Consejo (solo si abriste el campo de batalla desde el Consejo).</td></tr>
+</table>
+
+<h3>Modo de marcha</h3>
+<p><kbd>Espacio</kbd> (o el botón «Formation walk») alterna entre dos formas de andar: <b>en formación</b> los soldados
+mantienen su disposición, ideal para distancias largas; <b>agrupar</b> envía a todos directamente al punto, normalmente
+mejor en combate.</p>
+
+<h3>Comportamiento</h3>
+<p>Tres botones definen cómo se comportan los soldados cuando <i>no</i> los diriges directamente:</p>
+<table>
+  <tr><th>Cobarde (punto amarillo)</th><td>Huye al primer daño.</td></tr>
+  <tr><th>Normal (punto azul)</th><td>Por defecto: solo huye si está gravemente herido.</td></tr>
+  <tr><th>Berserker (punto rojo)</th><td>Ataca a todo enemigo a la vista y lucha hasta la muerte; algo más de ataque,
+  algo menos de defensa.</td></tr>
+</table>
+
+<h2 id="units">5. Las unidades</h2>
+<table>
+  <tr><th>Espadachines</th><td>Infantería barata, ágil incluso en espacios estrechos. Se entrenan y mueven en grupos de cinco en el Consejo.</td></tr>
+  <tr><th>Ballesteros</th><td>Tiradores a distancia, también en grupos de cinco. Mantienen a raya a los jinetes; ideales en torres y murallas.</td></tr>
+  <tr><th>Caballero</th><td>Jinete rápido y fuerte. Su mantenimiento cuesta lo mismo que cinco espadachines.</td></tr>
+  <tr><th>Ariete</th><td>Barato; rompe puertas, pero no murallas. Imprescindible hasta que haya catapultas.</td></tr>
+  <tr><th>Catapulta</th><td>Destruye murallas y puertas y lanza piedras contra las tropas.</td></tr>
+  <tr><th>Cañón</th><td>Como la catapulta, pero más rápido, más preciso y con mayor cadencia. Los primeros cañones pueden
+  explotar: mantén a tus hombres alejados.</td></tr>
+  <tr><th>Espías</th><td>Nunca aparecen en el campo de batalla. Envíalos a un condado enemigo; al cabo de un tiempo informan
+  de recursos, tropas, edificios e incluso un mapa. Si los capturan a todos, se pierde lo averiguado.</td></tr>
+</table>
+<p>Las unidades a distancia aciertan mucho más cuando el objetivo está a menos de la mitad de su alcance. Los soldados que
+sobreviven mucho tiempo se convierten en veteranos con un ataque más fuerte. Los soldados gravemente heridos andan más despacio.</p>
+
+<h2 id="buildings">6. Construcciones</h2>
+<p><b>Puentes</b> (madera o piedra), <b>torres de vigilancia</b> (hasta cuatro tiradores), <b>fortificaciones</b> y
+<b>fortalezas</b> (murallas más grandes sobre las que pueden situarse soldados, con foso opcional). Los grandes edificios
+también aumentan los ingresos del condado y ayudan a desenmascarar espías enemigos. En murallas y torres, los soldados ven y
+disparan más lejos; a las murallas de una fortaleza se sube con un simple clic. Las casas son infranqueables: los soldados
+que quieras proteger pueden esconderse dentro.</p>
+
+<h2 id="keys">7. Controles de teclado (batalla)</h2>
+<table>
+  <tr><th>Tecla</th><th>Efecto</th></tr>
+  <tr><td><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>G</kbd> <kbd>P</kbd> <kbd>F</kbd> <kbd>M</kbd> <kbd>L</kbd></td><td>Andar, Atacar, Stop, Vigilar, Patrullar, Huir, Maniobra, Retirada</td></tr>
+  <tr><td><kbd>Espacio</kbd></td><td>Modo de marcha formación / agrupar</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>0</kbd>…<kbd>9</kbd></td><td>Guardar la selección como grupo</td></tr>
+  <tr><td><kbd>0</kbd>…<kbd>9</kbd></td><td>Seleccionar un grupo</td></tr>
+  <tr><td><kbd>Mayús</kbd>+<kbd>0</kbd>…<kbd>9</kbd></td><td>Añadir un grupo a la selección</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>A</kbd></td><td>Seleccionar todos tus soldados</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>V</kbd></td><td>Seleccionar todos los soldados visibles</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>Retroceso</kbd></td><td>Invertir la selección</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd> / <kbd>C</kbd> / <kbd>K</kbd> / <kbd>J</kbd> / <kbd>T</kbd> / <kbd>N</kbd></td><td>Seleccionar espadachines / ballesteros / caballeros / arietes / catapultas / cañones visibles (con <kbd>Mayús</kbd>: añadir todos los del mapa)</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>←</kbd> / <kbd>→</kbd></td><td>Soldado anterior / siguiente</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>↑</kbd> / <kbd>↓</kbd></td><td>Llevar la vista a ese soldado</td></tr>
+  <tr><td><kbd>Tab</kbd></td><td>La vista sigue a la selección</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>F2</kbd>…<kbd>F8</kbd> / <kbd>F2</kbd>…<kbd>F8</kbd></td><td>Recordar una posición del mapa / saltar a ella</td></tr>
+  <tr><td><kbd>Pausa</kbd></td><td>Pausar el juego</td></tr>
+  <tr><td><kbd>F1</kbd>, <kbd>Ctrl</kbd>+<kbd>H</kbd></td><td>Ayuda integrada</td></tr>
+  <tr><td><kbd>Esc</kbd></td><td>Volver al menú principal (en el menú principal: resalta «Exit»)</td></tr>
+  <tr><td>Rueda del ratón <span class="new">NUEVO</span></td><td>Zoom</td></tr>
+  <tr><td><kbd>Alt</kbd>+<kbd>Intro</kbd></td><td>Ventana / pantalla completa</td></tr>
+</table>
+<p><b>En el Consejo:</b> las flechas seleccionan un condado, <kbd>I</kbd> abre su campo de batalla; en la pestaña
+Movimientos, <kbd>Espacio</kbd> = todo/nada, <kbd>Retroceso</kbd> = invertir la selección.</p>
+
+<h2 id="new">8. Novedades de esta versión</h2>
+<ul>
+  <li><b>Gran campo de batalla 16:9</b> con <b>zoom con la rueda</b> en 7 niveles; el panel lateral mantiene siempre su tamaño.</li>
+  <li><b>Botones de tipo de unidad</b> bajo el cuadro de información: un clic selecciona todas las unidades vivas de ese tipo
+  en todo el mapa, <kbd>Mayús</kbd>+clic las añade. El número indica cuántas siguen vivas.</li>
+  <li><b>Botones de grupo 1–9 y 0</b>: un clic selecciona el grupo, <kbd>Mayús</kbd>+clic lo añade,
+  <kbd>Ctrl</kbd>+clic guarda la selección como ese grupo (los mismos grupos que las teclas numéricas).</li>
+  <li>Menús y mapa estratégico con bandas laterales difuminadas, vídeos sin líneas negras, sin necesidad del CD.</li>
+</ul>
+
+<h2 id="tips">9. Consejos para empezar</h2>
+<ul>
+  <li>Los <b>ballesteros</b> son la mejor defensa: colócalos en torres y murallas de fortaleza y ponlos en berserker.</li>
+  <li>Invierte pronto en <b>armamento</b>: sin catapultas ni cañones no tienes ninguna posibilidad contra las grandes fortalezas del sultán.</li>
+  <li>Mueve los grandes ejércitos <b>en formación</b>. Si el juego se ralentiza con muchas unidades, selecciona todo
+  (<kbd>Ctrl</kbd>+<kbd>A</kbd>), detenlos con <kbd>S</kbd> y envíalos de nuevo en formación.</li>
+  <li>Vigila el <b>grano</b>: sin abastecimiento, tus hombres desertan.</li>
+  <li>Envía <b>espías</b> antes de un ataque: con su mapa ves al enemigo mientras te acercas.</li>
+  <li>Ocupa mojones fronterizos, puentes y pasos donde esperes el próximo ataque.</li>
+</ul>
+
+<footer>Resumen independiente escrito para la versión modernizada. <i>Vlad Tepes Dracula</i> © 1997 Computer House.
+Si instalaste desde el CD con el lanzador, el manual original (en inglés) está en la carpeta del juego como
+<code>MANUAL.PDF</code>.</footer>
+</main></body></html>
