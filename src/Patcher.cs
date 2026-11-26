@@ -19,7 +19,7 @@ namespace DraculaLauncher
         public static byte[] ApplyExePatch(byte[] drp, byte[] origExe, byte[] councilArt)
         {
             if (drp.Length < 8 || Encoding.ASCII.GetString(drp, 0, 8) != "DRPATCH1")
-                throw new InvalidDataException("Not a patch file");
+                throw new InvalidDataException(L.T("Not a patch file"));
             byte[] body;
             using (var ms = new MemoryStream(drp, 8, drp.Length - 8))
             using (var ds = new DeflateStream(ms, CompressionMode.Decompress))
@@ -49,14 +49,14 @@ namespace DraculaLauncher
                 {
                     int len = r.ReadInt32();
                     if (mask == null) mask = CouncilMaskPixels(councilArt);
-                    if (mask.Length != len) throw new InvalidDataException("Council.art does not match the patch");
+                    if (mask.Length != len) throw new InvalidDataException(L.T("Council.art does not match the patch"));
                     outp.Write(mask, 0, len);
                 }
-                else throw new InvalidDataException("Patch file damaged");
+                else throw new InvalidDataException(L.T("Patch file damaged"));
             }
             byte[] result = outp.ToArray();
             if (result.Length != size || Sha256(result) != BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant())
-                throw new InvalidDataException("Result checksum does not match");
+                throw new InvalidDataException(L.T("Result checksum does not match"));
             return result;
         }
 
@@ -66,7 +66,7 @@ namespace DraculaLauncher
         public static byte[] CouncilMaskPixels(byte[] d)
         {
             if (!(d[0] == 10 && d[2] == 1 && d[3] == 8 && d[d.Length - 769] == 12))
-                throw new InvalidDataException("Council.art has an unexpected format");
+                throw new InvalidDataException(L.T("Council.art has an unexpected format"));
             int bpl = BitConverter.ToUInt16(d, 66);
             int palAt = d.Length - 768;
             var px = new byte[bpl * 480 + 64];

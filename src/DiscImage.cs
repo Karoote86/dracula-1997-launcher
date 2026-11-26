@@ -33,7 +33,7 @@ namespace DraculaLauncher
         {
             byte[] d = File.ReadAllBytes(mdsPath);
             if (Encoding.ASCII.GetString(d, 0, 16) != "MEDIA DESCRIPTOR")
-                throw new InvalidDataException("Not an MDS file: " + mdsPath);
+                throw new InvalidDataException(L.T("Not an MDS file: {0}", mdsPath));
             int sess = BitConverter.ToInt32(d, 0x50);
             int nblocks = d[sess + 10];
             int trk = BitConverter.ToInt32(d, sess + 20);
@@ -58,7 +58,7 @@ namespace DraculaLauncher
 
         public Track DataTrack
         {
-            get { foreach (var t in Tracks) if (!t.IsAudio) return t; throw new InvalidDataException("No data track"); }
+            get { foreach (var t in Tracks) if (!t.IsAudio) return t; throw new InvalidDataException(L.T("No data track")); }
         }
 
         // 2048 user bytes of a data sector (raw 2352: 12 sync + 4 header [+ 8 subheader for Mode 2 Form 1]).
@@ -102,7 +102,7 @@ namespace DraculaLauncher
         {
             byte[] pvd = ReadDataSectors(16, 1);
             if (pvd[0] != 1 || Encoding.ASCII.GetString(pvd, 1, 5) != "CD001")
-                throw new InvalidDataException("No ISO 9660 file system in the data track");
+                throw new InvalidDataException(L.T("No ISO 9660 file system in the data track"));
             var list = new List<IsoFile>();
             int rootLba = BitConverter.ToInt32(pvd, 156 + 2);
             int rootLen = BitConverter.ToInt32(pvd, 156 + 10);

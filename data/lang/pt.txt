@@ -1,0 +1,72 @@
+# Português
+  skipped: {0}	  ignorado: {0}
+ (scaled to fit)	 (ajustado)
+1. Installation (from your own CD)	1. Instalação (a partir do seu próprio CD)
+2. Settings	2. Definições
+Apply settings	Aplicar definições
+Blurred side bars in menus and on the strategy map (otherwise black)	Barras laterais desfocadas nos menus e no mapa estratégico (caso contrário, pretas)
+Browse...	Procurar...
+Building Dracula.exe ({0}, display {1}) ...	A criar Dracula.exe ({0}, ecrã {1}) ...
+CD image (*.mds)|*.mds|Original game (Dracula.exe)|Dracula.exe	Imagem de CD (*.mds)|*.mds|Jogo original (Dracula.exe)|Dracula.exe
+CD image (.mds) or folder with an installed original game	Imagem de CD (.mds) ou pasta com o jogo original instalado
+CD image or Dracula.exe of the original game	Imagem de CD ou Dracula.exe do jogo original
+Checking the game files ...	A verificar os ficheiros do jogo ...
+Converting the CD music to OGG ...	A converter a música do CD para OGG ...
+Copying cnc-ddraw and ogg-winmm ...	A copiar cnc-ddraw e ogg-winmm ...
+Copying the game files ...	A copiar os ficheiros do jogo ...
+Council.art does not match the patch	Council.art não corresponde ao patch
+Council.art has an unexpected format	Council.art tem um formato inesperado
+Create registry entry and Start menu shortcut (asks for admin rights)	Criar entrada de registo e atalho no menu Iniciar (pede direitos de administrador)
+Display resolution:	Resolução do ecrã:
+Done.	Concluído.
+ERROR: {0}	ERRO: {0}
+File does not match the known original version: {0}\n(Only the English CD version 1.0 from 1997 is supported.)	O ficheiro não corresponde à versão original conhecida: {0}\n(Só é suportada a versão em CD inglesa 1.0 de 1997.)
+File missing in the source folder: {0}	Ficheiro em falta na pasta de origem: {0}
+File missing on the CD: {0}	Ficheiro em falta no CD: {0}
+Folder for the modernized game	Pasta para o jogo modernizado
+Fullscreen (otherwise window)	Ecrã inteiro (caso contrário, janela)
+Game guide	Guia do jogo
+Game removed.	Jogo removido.
+Game removed; save games kept in {0}	Jogo removido; jogos guardados mantidos em {0}
+Install	Instalar
+Installation complete. Have fun!	Instalação concluída. Divirta-se!
+Keep your save games (the Saves folder)?	Manter os seus jogos guardados (pasta Saves)?
+Language:	Idioma:
+Music volume:	Volume da música:
+No ISO 9660 file system in the data track	Não há sistema de ficheiros ISO 9660 na faixa de dados
+No data track	Não há faixa de dados
+No game found in the target folder.	Nenhum jogo encontrado na pasta de destino.
+No game installed by this launcher was found in the target folder.	Não há nenhum jogo instalado por este launcher na pasta de destino.
+Not a patch file	Não é um ficheiro de patch
+Not an MDS file: {0}	Não é um ficheiro MDS: {0}
+Note: no music found (only possible from the image) - the game runs without music.	Nota: nenhuma música encontrada (só é possível a partir da imagem) - o jogo funciona sem música.
+Open game folder	Abrir pasta do jogo
+Original EXE missing ({0}). Please install again.	EXE original em falta ({0}). Instale novamente.
+Original manual: {0}	Manual original: {0}
+Patch file damaged	Ficheiro de patch danificado
+Play	Jogar
+Please choose a target folder.	Escolha uma pasta de destino.
+Please choose the source first.	Escolha primeiro a origem.
+Reading the CD data from the image ...	A ler os dados do CD a partir da imagem ...
+Registry entry and shortcut ...	Entrada de registo e atalho ...
+Registry entry failed	Falha na entrada de registo
+Remove the game from\n{0}\n(including the Start menu shortcut and registry entry)?	Remover o jogo de\n{0}\n(incluindo o atalho do menu Iniciar e a entrada de registo)?
+Removing the black lines from the videos ...	A remover as linhas pretas dos vídeos ...
+Removing the game files ...	A remover os ficheiros do jogo ...
+Removing the registry entry ...	A remover a entrada de registo ...
+Result checksum does not match	A soma de verificação do resultado não corresponde
+Setting {0} not found in {1}	Definição {0} não encontrada em {1}
+Settings applied.	Definições aplicadas.
+Smooth picture (filter); off = sharp pixels	Imagem suavizada (filtro); desligado = píxeis nítidos
+Source:	Origem:
+Start zoom level (battlefield):	Nível de zoom inicial (campo de batalha):
+Target folder for the game	Pasta de destino do jogo
+Target:	Destino:
+The .mdf file next to the .mds is missing: {0}	Falta o ficheiro .mdf ao lado do .mds: {0}
+The target folder already contains the game. Overwrite the game files? (Save games are kept.)	A pasta de destino já contém o jogo. Substituir os ficheiros do jogo? (Os jogos guardados são mantidos.)
+The target folder does not exist yet.	A pasta de destino ainda não existe.
+This folder was not installed by the launcher.	Esta pasta não foi instalada pelo launcher.
+Uninstall...	Desinstalar...
+Your screen: {0}	O seu ecrã: {0}
+{0} failed: {1}	{0} falhou: {1}
+{0} is not the original EXE.	{0} não é o EXE original.

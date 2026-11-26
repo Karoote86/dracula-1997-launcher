@@ -1,0 +1,72 @@
+# Polski
+  skipped: {0}	  pominięto: {0}
+ (scaled to fit)	 (skalowane)
+1. Installation (from your own CD)	1. Instalacja (z własnej płyty CD)
+2. Settings	2. Ustawienia
+Apply settings	Zastosuj ustawienia
+Blurred side bars in menus and on the strategy map (otherwise black)	Rozmyte pasy boczne w menu i na mapie strategicznej (w przeciwnym razie czarne)
+Browse...	Przeglądaj...
+Building Dracula.exe ({0}, display {1}) ...	Tworzenie Dracula.exe ({0}, ekran {1}) ...
+CD image (*.mds)|*.mds|Original game (Dracula.exe)|Dracula.exe	Obraz CD (*.mds)|*.mds|Oryginalna gra (Dracula.exe)|Dracula.exe
+CD image (.mds) or folder with an installed original game	Obraz CD (.mds) lub folder z zainstalowaną oryginalną grą
+CD image or Dracula.exe of the original game	Obraz CD lub Dracula.exe oryginalnej gry
+Checking the game files ...	Sprawdzanie plików gry ...
+Converting the CD music to OGG ...	Konwersja muzyki z CD do OGG ...
+Copying cnc-ddraw and ogg-winmm ...	Kopiowanie cnc-ddraw i ogg-winmm ...
+Copying the game files ...	Kopiowanie plików gry ...
+Council.art does not match the patch	Council.art nie pasuje do łatki
+Council.art has an unexpected format	Council.art ma nieoczekiwany format
+Create registry entry and Start menu shortcut (asks for admin rights)	Utwórz wpis w rejestrze i skrót w menu Start (wymaga uprawnień administratora)
+Display resolution:	Rozdzielczość ekranu:
+Done.	Gotowe.
+ERROR: {0}	BŁĄD: {0}
+File does not match the known original version: {0}\n(Only the English CD version 1.0 from 1997 is supported.)	Plik nie pasuje do znanej wersji oryginalnej: {0}\n(Obsługiwana jest tylko angielska wersja CD 1.0 z 1997 roku.)
+File missing in the source folder: {0}	Brak pliku w folderze źródłowym: {0}
+File missing on the CD: {0}	Brak pliku na płycie CD: {0}
+Folder for the modernized game	Folder dla zmodernizowanej gry
+Fullscreen (otherwise window)	Pełny ekran (w przeciwnym razie okno)
+Game guide	Poradnik do gry
+Game removed.	Gra usunięta.
+Game removed; save games kept in {0}	Gra usunięta; zapisy gry zachowane w {0}
+Install	Zainstaluj
+Installation complete. Have fun!	Instalacja zakończona. Miłej zabawy!
+Keep your save games (the Saves folder)?	Zachować zapisy gry (folder Saves)?
+Language:	Język:
+Music volume:	Głośność muzyki:
+No ISO 9660 file system in the data track	Brak systemu plików ISO 9660 na ścieżce danych
+No data track	Brak ścieżki danych
+No game found in the target folder.	W folderze docelowym nie znaleziono gry.
+No game installed by this launcher was found in the target folder.	W folderze docelowym nie ma gry zainstalowanej tym launcherem.
+Not a patch file	To nie jest plik łatki
+Not an MDS file: {0}	To nie jest plik MDS: {0}
+Note: no music found (only possible from the image) - the game runs without music.	Uwaga: nie znaleziono muzyki (możliwe tylko z obrazu) - gra działa bez muzyki.
+Open game folder	Otwórz folder gry
+Original EXE missing ({0}). Please install again.	Brak oryginalnego pliku EXE ({0}). Zainstaluj ponownie.
+Original manual: {0}	Oryginalna instrukcja: {0}
+Patch file damaged	Plik łatki jest uszkodzony
+Play	Graj
+Please choose a target folder.	Wybierz folder docelowy.
+Please choose the source first.	Najpierw wybierz źródło.
+Reading the CD data from the image ...	Odczyt danych CD z obrazu ...
+Registry entry and shortcut ...	Wpis w rejestrze i skrót ...
+Registry entry failed	Nie udało się utworzyć wpisu w rejestrze
+Remove the game from\n{0}\n(including the Start menu shortcut and registry entry)?	Usunąć grę z\n{0}\n(razem ze skrótem w menu Start i wpisem w rejestrze)?
+Removing the black lines from the videos ...	Usuwanie czarnych linii z filmów ...
+Removing the game files ...	Usuwanie plików gry ...
+Removing the registry entry ...	Usuwanie wpisu z rejestru ...
+Result checksum does not match	Suma kontrolna wyniku się nie zgadza
+Setting {0} not found in {1}	Nie znaleziono ustawienia {0} w {1}
+Settings applied.	Ustawienia zastosowane.
+Smooth picture (filter); off = sharp pixels	Wygładzony obraz (filtr); wyłączone = ostre piksele
+Source:	Źródło:
+Start zoom level (battlefield):	Początkowy poziom powiększenia (pole bitwy):
+Target folder for the game	Folder docelowy gry
+Target:	Cel:
+The .mdf file next to the .mds is missing: {0}	Brak pliku .mdf obok pliku .mds: {0}
+The target folder already contains the game. Overwrite the game files? (Save games are kept.)	Folder docelowy zawiera już grę. Nadpisać pliki gry? (Zapisy gry zostaną zachowane.)
+The target folder does not exist yet.	Folder docelowy jeszcze nie istnieje.
+This folder was not installed by the launcher.	Ten folder nie został zainstalowany przez launcher.
+Uninstall...	Odinstaluj...
+Your screen: {0}	Twój ekran: {0}
+{0} failed: {1}	{0} – błąd: {1}
+{0} is not the original EXE.	{0} nie jest oryginalnym plikiem EXE.

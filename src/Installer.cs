@@ -136,8 +136,8 @@ namespace DraculaLauncher
                 if (image)
                 {
                     string mdf = System.IO.Path.ChangeExtension(source, ".mdf");
-                    if (!File.Exists(mdf)) throw new FileNotFoundException("The .mdf file next to the .mds is missing: " + mdf);
-                    Log("Reading the CD data from the image ...");
+                    if (!File.Exists(mdf)) throw new FileNotFoundException(L.T("The .mdf file next to the .mds is missing: {0}", mdf));
+                    Log(L.T("Reading the CD data from the image ..."));
                     using (var d = new DiscImage(source, mdf))
                     {
                         var files = d.ListFiles().Where(f => !f.IsDir)
@@ -146,7 +146,7 @@ namespace DraculaLauncher
                         {
                             IsoFile f;
                             if (!files.TryGetValue(e.Path.ToUpperInvariant(), out f))
-                                throw new InvalidDataException("File missing on the CD: " + e.Path);
+                                throw new InvalidDataException(L.T("File missing on the CD: {0}", e.Path));
                             d.ExtractFile(f, System.IO.Path.Combine(tmp, "game", e.Path));
                         }
                         IsoFile manual;                                  // original English manual (optional)
@@ -177,7 +177,7 @@ namespace DraculaLauncher
                     foreach (var e in man)
                     {
                         string p = System.IO.Path.Combine(source, e.Path);
-                        if (!File.Exists(p)) throw new FileNotFoundException("File missing in the source folder: " + e.Path);
+                        if (!File.Exists(p)) throw new FileNotFoundException(L.T("File missing in the source folder: {0}", e.Path));
                         string dst = System.IO.Path.Combine(tmp, "game", e.Path);
                         Directory.CreateDirectory(System.IO.Path.GetDirectoryName(dst));
                         File.Copy(p, dst);
@@ -191,8 +191,7 @@ namespace DraculaLauncher
                 {
                     string p = System.IO.Path.Combine(tmp, "game", e.Path);
                     if (new FileInfo(p).Length != e.Size || Sha(p) != e.Sha)
-                        throw new InvalidDataException("File does not match the known original version: " + e.Path +
-                            "\n(Only the English CD version 1.0 from 1997 is supported.)");
+                        throw new InvalidDataException(L.T("File does not match the known original version: {0}\n(Only the English CD version 1.0 from 1997 is supported.)", e.Path));
                 }
 
                 Progress(70);
@@ -208,7 +207,7 @@ namespace DraculaLauncher
 
                 Progress(80);
                 foreach (var v in Directory.GetFiles(System.IO.Path.Combine(target, "Cinema"), "*.cin"))
-                    if (!Patcher.PatchVideo(v)) Log("  skipped: " + System.IO.Path.GetFileName(v));
+                    if (!Patcher.PatchVideo(v)) Log(L.T("  skipped: {0}", System.IO.Path.GetFileName(v)));
 
                 if (musicSrc != null)
                 {
@@ -217,11 +216,11 @@ namespace DraculaLauncher
                     foreach (var f in Directory.GetFiles(musicSrc, "Track*.ogg"))
                         File.Copy(f, System.IO.Path.Combine(md, System.IO.Path.GetFileName(f)), true);
                 }
-                else Log("Note: no music found (only possible from the image) - the game runs without music.");
+                else Log(L.T("Note: no music found (only possible from the image) - the game runs without music."));
 
                 Progress(88);
                 CopyDir(System.IO.Path.Combine(Home, "bundle", "game"), target);
-                File.Copy(System.IO.Path.Combine(Home, "data", "guide.html"), System.IO.Path.Combine(target, "Guide.html"), true);
+                File.Copy(L.GuidePath(Home), System.IO.Path.Combine(target, "Guide.html"), true);
 
                 Apply(target, s);
             }
@@ -235,11 +234,11 @@ namespace DraculaLauncher
         public void Apply(string target, Settings s)
         {
             string orig = System.IO.Path.Combine(target, OrigExeName);
-            if (!File.Exists(orig)) throw new FileNotFoundException("Original EXE missing (" + OrigExeName + "). Please install again.");
+            if (!File.Exists(orig)) throw new FileNotFoundException(L.T("Original EXE missing ({0}). Please install again.", OrigExeName));
             var man = Manifest();
             var exeEntry = man.First(e => e.Path.Equals("Dracula.exe", StringComparison.OrdinalIgnoreCase));
-            if (Sha(orig) != exeEntry.Sha) throw new InvalidDataException(OrigExeName + " is not the original EXE.");
-            Log("Building Dracula.exe (" + s.Level + ", display " + s.Display + ") ...");
+            if (Sha(orig) != exeEntry.Sha) throw new InvalidDataException(L.T("{0} is not the original EXE.", OrigExeName));
+            Log(L.T("Building Dracula.exe ({0}, display {1}) ...", s.Level, s.Display));
             byte[] drp = File.ReadAllBytes(System.IO.Path.Combine(Home, "data", "patches", s.PatchName));
             byte[] exe = Patcher.ApplyExePatch(drp, File.ReadAllBytes(orig),
                                                File.ReadAllBytes(System.IO.Path.Combine(target, "Art", "Council.art")));
@@ -255,7 +254,7 @@ namespace DraculaLauncher
             if (File.Exists(wm)) IniSet(wm, "CDDAVolume", s.MusicVolume.ToString());
             s.Save(System.IO.Path.Combine(target, SettingsName));
             Progress(100);
-            Log("Done.");
+            Log(L.T("Done."));
         }
 
         public static bool IsInstall(string target)
@@ -267,8 +266,8 @@ namespace DraculaLauncher
         // keepSaves: the Saves folder stays.
         public void Uninstall(string target, bool keepSaves)
         {
-            if (!IsInstall(target)) throw new InvalidOperationException("This folder was not installed by the launcher.");
-            Log("Removing the game files ...");
+            if (!IsInstall(target)) throw new InvalidOperationException(L.T("This folder was not installed by the launcher."));
+            Log(L.T("Removing the game files ..."));
             foreach (var f in Directory.GetFiles(target)) File.Delete(f);
             foreach (var d in Directory.GetDirectories(target))
                 if (!(keepSaves && System.IO.Path.GetFileName(d).Equals("Saves", StringComparison.OrdinalIgnoreCase)))
@@ -277,7 +276,7 @@ namespace DraculaLauncher
             string lnk = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Programs), "Vlad Tepes Dracula.lnk");
             if (File.Exists(lnk) && ShortcutTarget(lnk).Equals(System.IO.Path.GetFullPath(System.IO.Path.Combine(target, "Dracula.exe")), StringComparison.OrdinalIgnoreCase))
                 File.Delete(lnk);                                // only our own shortcut, never one for another install
-            Log("Done.");
+            Log(L.T("Done."));
         }
 
         // Removes the registry entry (needs admin: runs reg.exe elevated). Ignores a missing key.
@@ -300,7 +299,7 @@ namespace DraculaLauncher
                 if (eq > 0 && !t.StartsWith(";") && t.Substring(0, eq).Trim().Equals(key, StringComparison.OrdinalIgnoreCase))
                 { lines[i] = key + (lines[i].Contains(" = ") ? " = " : "=") + value; found = true; break; }
             }
-            if (!found) throw new InvalidDataException("Setting " + key + " not found in " + System.IO.Path.GetFileName(path));
+            if (!found) throw new InvalidDataException(L.T("Setting {0} not found in {1}", key, System.IO.Path.GetFileName(path)));
             File.WriteAllLines(path, lines);
         }
 
@@ -324,7 +323,7 @@ namespace DraculaLauncher
             {
                 string err = p.StandardError.ReadToEnd();
                 p.WaitForExit();
-                if (p.ExitCode != 0) throw new Exception(System.IO.Path.GetFileName(exe) + " failed: " + err);
+                if (p.ExitCode != 0) throw new Exception(L.T("{0} failed: {1}", System.IO.Path.GetFileName(exe), err));
             }
         }
 
@@ -338,7 +337,7 @@ namespace DraculaLauncher
                 "[HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\ComputerHouse\\Dracula]\r\n" +
                 "\"InstallPath\"=\"" + esc + "\"\r\n\"SourcePath\"=\"" + esc + "\"\r\n", Encoding.Unicode);
             var psi = new ProcessStartInfo("reg.exe", "import \"" + reg + "\"") { UseShellExecute = true, Verb = "runas", WindowStyle = ProcessWindowStyle.Hidden };
-            using (var p = Process.Start(psi)) { p.WaitForExit(); if (p.ExitCode != 0) throw new Exception("Registry entry failed"); }
+            using (var p = Process.Start(psi)) { p.WaitForExit(); if (p.ExitCode != 0) throw new Exception(L.T("Registry entry failed")); }
             File.Delete(reg);
         }
 

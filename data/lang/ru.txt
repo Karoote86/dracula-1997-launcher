@@ -1,0 +1,72 @@
+# Русский
+  skipped: {0}	  пропущено: {0}
+ (scaled to fit)	 (с масштабированием)
+1. Installation (from your own CD)	1. Установка (с вашего CD)
+2. Settings	2. Настройки
+Apply settings	Применить настройки
+Blurred side bars in menus and on the strategy map (otherwise black)	Размытые боковые полосы в меню и на стратегической карте (иначе чёрные)
+Browse...	Обзор...
+Building Dracula.exe ({0}, display {1}) ...	Сборка Dracula.exe ({0}, экран {1}) ...
+CD image (*.mds)|*.mds|Original game (Dracula.exe)|Dracula.exe	Образ CD (*.mds)|*.mds|Оригинальная игра (Dracula.exe)|Dracula.exe
+CD image (.mds) or folder with an installed original game	Образ CD (.mds) или папка с установленной оригинальной игрой
+CD image or Dracula.exe of the original game	Образ CD или Dracula.exe оригинальной игры
+Checking the game files ...	Проверка файлов игры ...
+Converting the CD music to OGG ...	Преобразование музыки с CD в OGG ...
+Copying cnc-ddraw and ogg-winmm ...	Копирование cnc-ddraw и ogg-winmm ...
+Copying the game files ...	Копирование файлов игры ...
+Council.art does not match the patch	Council.art не подходит к патчу
+Council.art has an unexpected format	Council.art имеет неожиданный формат
+Create registry entry and Start menu shortcut (asks for admin rights)	Создать запись в реестре и ярлык в меню «Пуск» (потребуются права администратора)
+Display resolution:	Разрешение экрана:
+Done.	Готово.
+ERROR: {0}	ОШИБКА: {0}
+File does not match the known original version: {0}\n(Only the English CD version 1.0 from 1997 is supported.)	Файл не совпадает с известной оригинальной версией: {0}\n(Поддерживается только английская CD-версия 1.0 1997 года.)
+File missing in the source folder: {0}	В исходной папке нет файла: {0}
+File missing on the CD: {0}	На CD нет файла: {0}
+Folder for the modernized game	Папка для обновлённой игры
+Fullscreen (otherwise window)	Полноэкранный режим (иначе окно)
+Game guide	Руководство по игре
+Game removed.	Игра удалена.
+Game removed; save games kept in {0}	Игра удалена; сохранения остались в {0}
+Install	Установить
+Installation complete. Have fun!	Установка завершена. Приятной игры!
+Keep your save games (the Saves folder)?	Сохранить ваши сохранения (папка Saves)?
+Language:	Язык:
+Music volume:	Громкость музыки:
+No ISO 9660 file system in the data track	На дорожке данных нет файловой системы ISO 9660
+No data track	Нет дорожки данных
+No game found in the target folder.	В целевой папке игра не найдена.
+No game installed by this launcher was found in the target folder.	В целевой папке нет игры, установленной этим лаунчером.
+Not a patch file	Это не файл патча
+Not an MDS file: {0}	Это не файл MDS: {0}
+Note: no music found (only possible from the image) - the game runs without music.	Примечание: музыка не найдена (возможно только из образа) — игра работает без музыки.
+Open game folder	Открыть папку игры
+Original EXE missing ({0}). Please install again.	Нет оригинального EXE ({0}). Установите игру заново.
+Original manual: {0}	Оригинальное руководство: {0}
+Patch file damaged	Файл патча повреждён
+Play	Играть
+Please choose a target folder.	Выберите целевую папку.
+Please choose the source first.	Сначала выберите источник.
+Reading the CD data from the image ...	Чтение данных CD из образа ...
+Registry entry and shortcut ...	Запись в реестре и ярлык ...
+Registry entry failed	Не удалось создать запись в реестре
+Remove the game from\n{0}\n(including the Start menu shortcut and registry entry)?	Удалить игру из\n{0}\n(вместе с ярлыком в меню «Пуск» и записью в реестре)?
+Removing the black lines from the videos ...	Удаление чёрных строк из видео ...
+Removing the game files ...	Удаление файлов игры ...
+Removing the registry entry ...	Удаление записи из реестра ...
+Result checksum does not match	Контрольная сумма результата не совпадает
+Setting {0} not found in {1}	Параметр {0} не найден в {1}
+Settings applied.	Настройки применены.
+Smooth picture (filter); off = sharp pixels	Сглаженное изображение (фильтр); выкл. = чёткие пиксели
+Source:	Источник:
+Start zoom level (battlefield):	Начальный масштаб (поле боя):
+Target folder for the game	Целевая папка для игры
+Target:	Цель:
+The .mdf file next to the .mds is missing: {0}	Рядом с .mds нет файла .mdf: {0}
+The target folder already contains the game. Overwrite the game files? (Save games are kept.)	В целевой папке уже есть игра. Перезаписать файлы игры? (Сохранения останутся.)
+The target folder does not exist yet.	Целевая папка ещё не существует.
+This folder was not installed by the launcher.	Эта папка установлена не лаунчером.
+Uninstall...	Удалить...
+Your screen: {0}	Ваш экран: {0}
+{0} failed: {1}	Ошибка {0}: {1}
+{0} is not the original EXE.	{0} — не оригинальный EXE.

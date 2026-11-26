@@ -1,0 +1,71 @@
+  skipped: {0}
+ (scaled to fit)
+1. Installation (from your own CD)
+2. Settings
+Apply settings
+Blurred side bars in menus and on the strategy map (otherwise black)
+Browse...
+Building Dracula.exe ({0}, display {1}) ...
+CD image (*.mds)|*.mds|Original game (Dracula.exe)|Dracula.exe
+CD image (.mds) or folder with an installed original game
+CD image or Dracula.exe of the original game
+Checking the game files ...
+Converting the CD music to OGG ...
+Copying cnc-ddraw and ogg-winmm ...
+Copying the game files ...
+Council.art does not match the patch
+Council.art has an unexpected format
+Create registry entry and Start menu shortcut (asks for admin rights)
+Display resolution:
+Done.
+ERROR: {0}
+File does not match the known original version: {0}\n(Only the English CD version 1.0 from 1997 is supported.)
+File missing in the source folder: {0}
+File missing on the CD: {0}
+Folder for the modernized game
+Fullscreen (otherwise window)
+Game guide
+Game removed.
+Game removed; save games kept in {0}
+Install
+Installation complete. Have fun!
+Keep your save games (the Saves folder)?
+Language:
+Music volume:
+No ISO 9660 file system in the data track
+No data track
+No game found in the target folder.
+No game installed by this launcher was found in the target folder.
+Not a patch file
+Not an MDS file: {0}
+Note: no music found (only possible from the image) - the game runs without music.
+Open game folder
+Original EXE missing ({0}). Please install again.
+Original manual: {0}
+Patch file damaged
+Play
+Please choose a target folder.
+Please choose the source first.
+Reading the CD data from the image ...
+Registry entry and shortcut ...
+Registry entry failed
+Remove the game from\n{0}\n(including the Start menu shortcut and registry entry)?
+Removing the black lines from the videos ...
+Removing the game files ...
+Removing the registry entry ...
+Result checksum does not match
+Setting {0} not found in {1}
+Settings applied.
+Smooth picture (filter); off = sharp pixels
+Source:
+Start zoom level (battlefield):
+Target folder for the game
+Target:
+The .mdf file next to the .mds is missing: {0}
+The target folder already contains the game. Overwrite the game files? (Save games are kept.)
+The target folder does not exist yet.
+This folder was not installed by the launcher.
+Uninstall...
+Your screen: {0}
+{0} failed: {1}
+{0} is not the original EXE.
