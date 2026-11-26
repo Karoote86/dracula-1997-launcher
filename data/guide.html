@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vlad Tepes Dracula – Game Guide</title>
+<style>
+  :root { --ink:#2b2118; --paper:#f4ecdc; --rule:#c9b89a; --accent:#8b1a1a; --muted:#6d5f4d; }
+  body { margin:0; background:#e6dcc6; color:var(--ink); font:16px/1.55 Georgia, "Book Antiqua", serif; }
+  main { max-width:860px; margin:0 auto; padding:32px 40px 64px; background:var(--paper); min-height:100vh; box-sizing:border-box; }
+  h1 { font-size:2.1em; color:var(--accent); margin:0 0 4px; letter-spacing:.5px; }
+  .sub { color:var(--muted); margin:0 0 24px; }
+  h2 { color:var(--accent); border-bottom:1px solid var(--rule); padding-bottom:4px; margin-top:40px; }
+  h3 { margin:24px 0 6px; }
+  nav { background:#ebe1cb; border:1px solid var(--rule); padding:12px 20px; border-radius:4px; }
+  nav ol { margin:0; padding-left:20px; columns:2; }
+  nav a, a { color:var(--accent); }
+  table { border-collapse:collapse; width:100%; margin:8px 0 16px; font-size:.95em; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  th { background:#ebe1cb; }
+  kbd { font:13px/1 Consolas, monospace; background:#fff; border:1px solid #b9a888; border-bottom-width:2px; border-radius:3px; padding:2px 6px; white-space:nowrap; }
+  .tip { background:#efe3c8; border-left:4px solid var(--accent); padding:8px 14px; margin:14px 0; }
+  .new { display:inline-block; font:bold 11px sans-serif; color:#fff; background:var(--accent); border-radius:3px; padding:1px 5px; vertical-align:middle; }
+  footer { margin-top:48px; color:var(--muted); font-size:.85em; }
+</style>
+</head>
+<body><main>
+<h1>Vlad Tepes Dracula</h1>
+<p class="sub">Game guide for the modernized version – basics, gameplay and controls</p>
+
+<nav><ol>
+  <li><a href="#about">What is it about?</a></li>
+  <li><a href="#start">Getting started</a></li>
+  <li><a href="#council">The Council (strategy map)</a></li>
+  <li><a href="#battle">Battles</a></li>
+  <li><a href="#units">Units</a></li>
+  <li><a href="#buildings">Buildings</a></li>
+  <li><a href="#keys">Keyboard controls</a></li>
+  <li><a href="#new">New in this version</a></li>
+  <li><a href="#tips">Tips for beginners</a></li>
+</ol></nav>
+
+<h2 id="about">1. What is it about?</h2>
+<p>Wallachia, 1456: the land is split into twelve counties, most of them held by the Ottoman army. As Vlad
+Dracula you lead the resistance and win the country back, one county at a time.</p>
+<p>The game has two layers, and you switch between them all the time:</p>
+<ul>
+  <li><b>The Council</b> is the turn-based strategy map. One turn is one week. Here you manage resources,
+  train troops, build fortifications and send armies into neighbouring counties.</li>
+  <li><b>Battles</b> run in real time. Whenever you attack or are attacked, you fight on the map of that county
+  and command every soldier yourself.</li>
+</ul>
+
+<h2 id="start">2. Getting started</h2>
+<p>The main menu offers:</p>
+<table>
+  <tr><th>Engage</th><td>Start a game. If one is already running, you can continue it, start over or go back.</td></tr>
+  <tr><th>Load / Save</th><td>Load or save a game. Pick a slot, type a name when saving,
+  confirm with <kbd>Enter</kbd>, cancel with <kbd>Esc</kbd>.</td></tr>
+  <tr><th>Introduction</th><td>Plays the intro video again. Any key stops it.</td></tr>
+  <tr><th>Options</th><td>Effects and music volume, brightness/colour/contrast, game speed and
+  scroll speed. <kbd>D</kbd> resets everything.</td></tr>
+  <tr><th>Exit</th><td>Quits the game. Always quit this way rather than with Alt+F4.</td></tr>
+</table>
+<div class="tip">The game has a built-in help screen listing every shortcut: <kbd>F1</kbd> or <kbd>Ctrl</kbd>+<kbd>H</kbd>
+(or click the help box at the bottom of the side panel). Scroll with the arrow keys and Page Up/Down,
+<kbd>Esc</kbd> closes it.</div>
+
+<h2 id="council">3. The Council (strategy map)</h2>
+<h3>The map</h3>
+<p>Counties shaded brown belong to the enemy, the others are yours. One county is always <b>selected</b>
+(highlighted), and every Council command applies to it. Select one with a click or the arrow keys.
+Double-click one of your own counties (or press <kbd>I</kbd>) to open its battlefield: that lets you position your
+troops before an attack or look at the terrain. Blue arrows show your troop movements.</p>
+
+<h3>Resources</h3>
+<p>At the bottom centre you see five values, each with the current stock and, below it, the change per week:</p>
+<table>
+  <tr><th>Gold</th><td>Pays for training, building and research.</td></tr>
+  <tr><th>Grain</th><td>Every soldier eats one unit per week. If the upkeep runs out, troops desert.</td></tr>
+  <tr><th>Building material</th><td>Needed for constructions.</td></tr>
+  <tr><th>Recruits</th><td>Men available to be trained as new troops.</td></tr>
+  <tr><th>Army</th><td>Your total military strength.</td></tr>
+</table>
+<p>Click a resource picture to show or hide a history graph.</p>
+
+<h3>The tabs on the left</h3>
+<table>
+  <tr><th>Training</th><td>Train troops. The list shows cost, duration in weeks and combat values
+  (damage, accuracy, armour, stamina, speed, range). New troops appear in the selected county.
+  What is available depends on your armament level.</td></tr>
+  <tr><th>Movements</th><td>Shows the troops in the selected county. Click troops, then click a neighbouring
+  county (the cursor turns into a sword there). Your own county = relocation, an enemy county = attack.
+  Until the week ends you can undo any movement by clicking the troop again.
+  <kbd>Space</kbd> selects all or none, <kbd>Backspace</kbd> inverts the selection.</td></tr>
+  <tr><th>Constructions</th><td>Repair, upgrade or build bridges, towers, fortifications and strongholds. Only one
+  construction job per county at a time. Clicking the hourglass cancels the job.</td></tr>
+  <tr><th>Information</th><td>Resources, troops and buildings of the selected county. For enemy counties you need
+  spies there.</td></tr>
+  <tr><th>Administration</th><td>Research in two areas: <b>Armament</b> (better and new units) and
+  <b>Architecture</b> (better buildings). Expensive and slow, but essential.</td></tr>
+</table>
+
+<h3>The seal: ending the week</h3>
+<p>When all orders are given, click the red <b>seal</b> at the bottom right. The week ends, all orders are carried
+out, and you are told what happened. Wounded soldiers recover a little every week. If a fight breaks out,
+the game switches to the battlefield.</p>
+
+<h2 id="battle">4. Battles</h2>
+<h3>Sight and exploration</h3>
+<p>In foreign counties the map starts out black. Bright areas are what your soldiers see right now, dark areas
+were explored before but show no enemies. In your own counties (or once spies have delivered a map) there is no
+black. On the first attack the overview map shows your target; after that, further targets appear in order of
+importance. Border posts made of crossed planks mark the crossings to neighbouring counties: good spots for
+guards.</p>
+
+<h3>Commanding with the mouse</h3>
+<table>
+  <tr><th>Select</th><td>Left-click a soldier, or drag a frame around several. <kbd>Shift</kbd> adds,
+  <kbd>Ctrl</kbd> inverts.</td></tr>
+  <tr><th>Deselect</th><td>Right-click.</td></tr>
+  <tr><th>Move</th><td>Left-click an empty spot.</td></tr>
+  <tr><th>Attack</th><td>Left-click an enemy. The attackers leave their formation.</td></tr>
+  <tr><th>Scroll the view</th><td>Mouse to the screen edge, the arrow keys, or hold <kbd>Alt</kbd> and move the mouse.
+  Or click and drag on the overview map at the top left.</td></tr>
+  <tr><th>Zoom <span class="new">NEW</span></th><td>Mouse wheel: forward to zoom in, back for a wider view (7 levels).
+  The point under the cursor stays in place.</td></tr>
+  <tr><th>Gates</th><td>Deselect everyone first (right-click), then click the gate to open or close it, as long
+  as nobody is in the way.</td></tr>
+</table>
+<p>The green bars under selected soldiers show their health.</p>
+
+<h3>Commands in the side panel</h3>
+<p>Every command applies to the selected soldiers. The shortcut is the first letter of the command.</p>
+<table>
+  <tr><th>Command</th><th>Key</th><th>Effect</th></tr>
+  <tr><td>Walk</td><td><kbd>W</kbd></td><td>Then click the destination.</td></tr>
+  <tr><td>Attack</td><td><kbd>A</kbd></td><td>Then click an enemy. Without an enemy at the target it becomes a march.</td></tr>
+  <tr><td>Stop</td><td><kbd>S</kbd></td><td>Halt immediately and stay put.</td></tr>
+  <tr><td>Guard</td><td><kbd>G</kbd></td><td>Click a spot. The soldiers stay there, even when attacked.</td></tr>
+  <tr><td>Patrol</td><td><kbd>P</kbd></td><td>Click a spot. The soldiers go back and forth between it and their starting point.</td></tr>
+  <tr><td>Flee</td><td><kbd>F</kbd></td><td>Run away in the least threatened direction.</td></tr>
+  <tr><td>Manoeuvre</td><td><kbd>M</kbd></td><td>Set a series of waypoints: <kbd>M</kbd> and a click for each,
+  <kbd>Backspace</kbd> removes the last one, <kbd>Enter</kbd> starts.</td></tr>
+  <tr><td>Leave</td><td><kbd>L</kbd></td><td>The whole army retreats (confirm with <kbd>Y</kbd>/<kbd>N</kbd>).
+  You usually lose soldiers doing this.</td></tr>
+  <tr><td>Council</td><td>–</td><td>Back to the Council (only when you opened the battlefield from the Council).</td></tr>
+</table>
+
+<h3>Walk mode</h3>
+<p><kbd>Space</kbd> (or the "Formation walk" button) switches between two ways of walking:
+<b>formation</b> keeps the soldiers' arrangement, good for long distances; <b>assemble</b> sends everyone straight
+to the clicked point, usually better in combat.</p>
+
+<h3>Behaviour</h3>
+<p>Three buttons set how soldiers behave when you are <i>not</i> commanding them directly:</p>
+<table>
+  <tr><th>Coward (yellow dot)</th><td>Flees at the first damage.</td></tr>
+  <tr><th>Normal (blue dot)</th><td>Default: flees only when badly hurt.</td></tr>
+  <tr><th>Berserk (red dot)</th><td>Attacks every enemy in sight and fights to the death; a bit more attack,
+  a bit less defence.</td></tr>
+</table>
+
+<h2 id="units">5. Units</h2>
+<table>
+  <tr><th>Swordsmen</th><td>Cheap foot soldiers, agile even in tight spaces. Trained and moved in groups of five in the Council.</td></tr>
+  <tr><th>Crossbowmen</th><td>Ranged fighters, also in groups of five. Keep riders at a distance; ideal on towers and walls.</td></tr>
+  <tr><th>Knight</th><td>Fast, strong riders. Their upkeep costs as much as five swordsmen.</td></tr>
+  <tr><th>Juggernaut</th><td>A cheap battering ram that breaks gates but not walls. Essential until catapults are available.</td></tr>
+  <tr><th>Catapult</th><td>Destroys walls and gates and hurls rocks at troops.</td></tr>
+  <tr><th>Cannon</th><td>Like the catapult, but faster, more accurate and quicker to fire. Early cannons can
+  explode: keep your own men away.</td></tr>
+  <tr><th>Spies</th><td>Never appear on the battlefield. Send them into an enemy county; after a while they report
+  resources, troops, buildings and even a map. If all of them are caught, the knowledge is lost.</td></tr>
+</table>
+<p>Ranged units hit much better when the target is closer than half their range. Soldiers who survive long become
+veterans with a stronger attack. Badly wounded soldiers walk more slowly.</p>
+
+<h2 id="buildings">6. Buildings</h2>
+<p><b>Bridges</b> (wood or stone), <b>watchtowers</b> (up to four archers), <b>fortifications</b> and
+<b>strongholds</b> (bigger walls that soldiers can stand on, optionally with a moat). Large buildings also raise a
+county's income and help to unmask enemy spies. On walls and towers soldiers see and shoot further; you get onto
+stronghold walls with a simple click. Houses are impassable: soldiers you want to protect can hide inside.</p>
+
+<h2 id="keys">7. Keyboard controls (battle)</h2>
+<table>
+  <tr><th>Key</th><th>Effect</th></tr>
+  <tr><td><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>G</kbd> <kbd>P</kbd> <kbd>F</kbd> <kbd>M</kbd> <kbd>L</kbd></td><td>Walk, Attack, Stop, Guard, Patrol, Flee, Manoeuvre, Leave</td></tr>
+  <tr><td><kbd>Space</kbd></td><td>Walk mode formation / assemble</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>0</kbd>…<kbd>9</kbd></td><td>Store the selection as a group</td></tr>
+  <tr><td><kbd>0</kbd>…<kbd>9</kbd></td><td>Select a group</td></tr>
+  <tr><td><kbd>Shift</kbd>+<kbd>0</kbd>…<kbd>9</kbd></td><td>Add a group to the selection</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>A</kbd></td><td>Select all your soldiers</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>V</kbd></td><td>Select all visible soldiers</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>Backspace</kbd></td><td>Invert the selection</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd> / <kbd>C</kbd> / <kbd>K</kbd> / <kbd>J</kbd> / <kbd>T</kbd> / <kbd>N</kbd></td><td>Select visible swordsmen / crossbowmen / knights / juggernauts / catapults / cannons (with <kbd>Shift</kbd>: add all of them on the map)</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>←</kbd> / <kbd>→</kbd></td><td>Previous / next soldier</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>↑</kbd> / <kbd>↓</kbd></td><td>Move the view to that soldier</td></tr>
+  <tr><td><kbd>Tab</kbd></td><td>View follows the selection</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>F2</kbd>…<kbd>F8</kbd> / <kbd>F2</kbd>…<kbd>F8</kbd></td><td>Remember a map position / jump there</td></tr>
+  <tr><td><kbd>Pause</kbd></td><td>Pause the game</td></tr>
+  <tr><td><kbd>F1</kbd>, <kbd>Ctrl</kbd>+<kbd>H</kbd></td><td>Built-in help</td></tr>
+  <tr><td><kbd>Esc</kbd></td><td>Back to the main menu (in the main menu: highlights "Exit")</td></tr>
+  <tr><td>Mouse wheel <span class="new">NEW</span></td><td>Zoom</td></tr>
+  <tr><td><kbd>Alt</kbd>+<kbd>Enter</kbd></td><td>Window / fullscreen</td></tr>
+</table>
+<p><b>In the Council:</b> the arrow keys select a county, <kbd>I</kbd> opens its battlefield; on the Movements tab
+<kbd>Space</kbd> = all/none, <kbd>Backspace</kbd> = invert the selection.</p>
+
+<h2 id="new">8. New in this version</h2>
+<ul>
+  <li><b>Large 16:9 battlefield</b> with <b>mouse-wheel zoom</b> in 7 levels; the side panel always keeps its size.</li>
+  <li><b>Unit-type buttons</b> below the info box: a click selects all living units of that type on the whole map,
+  <kbd>Shift</kbd>+click adds them. The number shows how many are still alive.</li>
+  <li><b>Group buttons 1–9 and 0</b>: a click selects the group, <kbd>Shift</kbd>+click adds it,
+  <kbd>Ctrl</kbd>+click stores the selection as that group (the same groups as the number keys).</li>
+  <li>Menus and strategy map with blurred side bars, videos without black lines, no CD needed.</li>
+</ul>
+
+<h2 id="tips">9. Tips for beginners</h2>
+<ul>
+  <li><b>Crossbowmen</b> are the best defence: put them on towers and stronghold walls and set them to berserk.</li>
+  <li>Invest in <b>armament</b> early: without catapults and cannons you stand no chance against the Sultan's big strongholds.</li>
+  <li>Move large armies in <b>formation</b>. If the game slows down with many units, select all
+  (<kbd>Ctrl</kbd>+<kbd>A</kbd>), stop them with <kbd>S</kbd> and send them off again in formation.</li>
+  <li>Watch your <b>grain</b>: without supplies your men desert.</li>
+  <li>Send <b>spies</b> before an attack: with their map you see the enemy while you are still approaching.</li>
+  <li>Occupy border posts, bridges and passes where you expect the next attack.</li>
+</ul>
+
+<footer>An independent summary written for the modernized version. <i>Vlad Tepes Dracula</i> © 1997 Computer House.
+If you installed from the CD with the launcher, the original manual is in the game folder as <code>MANUAL.PDF</code>.</footer>
+</main></body></html>

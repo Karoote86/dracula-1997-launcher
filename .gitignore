@@ -1,0 +1,13 @@
+# build outputs (published as release assets, not in git)
+/DraculaLauncher.exe
+/encoder/dracenc.exe
+*.pdb
+# never commit game data
+*.mds
+*.mdf
+*.art
+*.cin
+*.wg
+*.ogg
+*.pcm
+/Dracula*.exe
