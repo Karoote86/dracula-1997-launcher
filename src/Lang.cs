@@ -1,4 +1,4 @@
-// Translations. The English text is the key; data\lang\<code>.txt holds "English<TAB>translation" lines
+﻿// Translations. The English text is the key; data\lang\<code>.txt holds "English<TAB>translation" lines
 // (\n written as backslash-n). Missing entries fall back to English.
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace DraculaLauncher
     {
         public static readonly string[][] Languages = {
             new[] { "en", "English" }, new[] { "de", "Deutsch" }, new[] { "fr", "Français" }, new[] { "es", "Español" },
-            new[] { "it", "Italiano" }, new[] { "pl", "Polski" }, new[] { "ru", "Русский" }, new[] { "pt", "Português" } };
+            new[] { "it", "Italiano" }, new[] { "pl", "Polski" }, new[] { "ru", "Русский" }, new[] { "pt", "Português" }, new[] { "zh", "简体中文" } };
 
         public static string Code = "en";
         static Dictionary<string, string> map = new Dictionary<string, string>();

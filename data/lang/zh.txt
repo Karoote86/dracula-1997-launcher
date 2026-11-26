@@ -1,0 +1,72 @@
+# 简体中文
+  skipped: {0}	  已跳过：{0}
+ (scaled to fit)	 （自动缩放）
+{0} failed: {1}	{0} 失败：{1}
+{0} is not the original EXE.	{0} 不是原版 EXE。
+1. Installation (from your own CD)	1. 安装（使用你自己的 CD）
+2. Settings	2. 设置
+Apply settings	应用设置
+Blurred side bars in menus and on the strategy map (otherwise black)	菜单和战略地图两侧显示模糊背景（否则为黑色）
+Browse...	浏览...
+Building Dracula.exe ({0}, display {1}) ...	正在生成 Dracula.exe（{0}，屏幕 {1}）...
+CD image (*.mds)|*.mds|Original game (Dracula.exe)|Dracula.exe	CD 镜像 (*.mds)|*.mds|原版游戏 (Dracula.exe)|Dracula.exe
+CD image (.mds) or folder with an installed original game	CD 镜像 (.mds) 或已安装原版游戏的文件夹
+CD image or Dracula.exe of the original game	原版游戏的 CD 镜像或 Dracula.exe
+Checking the game files ...	正在检查游戏文件...
+Converting the CD music to OGG ...	正在将 CD 音乐转换为 OGG...
+Copying cnc-ddraw and ogg-winmm ...	正在复制 cnc-ddraw 和 ogg-winmm...
+Copying the game files ...	正在复制游戏文件...
+Could not link the save games folder: {0}	无法链接存档文件夹：{0}
+Council.art does not match the patch	Council.art 与补丁不匹配
+Council.art has an unexpected format	Council.art 格式异常
+Create registry entry and Start menu shortcut (asks for admin rights)	创建注册表项和开始菜单快捷方式（需要管理员权限）
+Display resolution:	屏幕分辨率：
+Done.	完成。
+ERROR: {0}	错误：{0}
+File does not match the known original version: {0}\n(Only the English CD version 1.0 from 1997 is supported.)	文件与已知的原版不符：{0}\n（仅支持 1997 年的英文 CD 版 1.0。）
+File missing in the source folder: {0}	源文件夹中缺少文件：{0}
+File missing on the CD: {0}	CD 中缺少文件：{0}
+Folder for the modernized game	现代化版游戏的文件夹
+Fullscreen (otherwise window)	全屏（否则为窗口）
+Game guide	游戏指南
+Game removed. Your save games stay in {0}	游戏已删除。你的存档保留在 {0}
+Install	安装
+Installation complete. Have fun!	安装完成，祝你玩得开心！
+Language:	语言：
+Music volume:	音乐音量：
+No data track	没有数据轨道
+No game found in the target folder.	目标文件夹中未找到游戏。
+No game installed by this launcher was found in the target folder.	目标文件夹中没有由本启动器安装的游戏。
+No ISO 9660 file system in the data track	数据轨道中没有 ISO 9660 文件系统
+Not a patch file	不是补丁文件
+Not an MDS file: {0}	不是 MDS 文件：{0}
+Note: no music found (only possible from the image) - the game runs without music.	提示：未找到音乐（仅能从镜像获取），游戏将在无音乐状态下运行。
+Open game folder	打开游戏文件夹
+Original EXE missing ({0}). Please install again.	缺少原版 EXE（{0}）。请重新安装。
+Original manual: {0}	原版说明书：{0}
+Patch file damaged	补丁文件已损坏
+Play	开始游戏
+Please choose a target folder.	请选择目标文件夹。
+Please choose the source first.	请先选择来源。
+Reading the CD data from the image ...	正在从镜像读取 CD 数据...
+Registry entry and shortcut ...	注册表项和快捷方式...
+Registry entry failed	注册表项创建失败
+Remove the game from\n{0}\n(including the Start menu shortcut and registry entry)?	从以下位置删除游戏？\n{0}\n（包括开始菜单快捷方式和注册表项）
+Removing the black lines from the videos ...	正在去除视频中的黑线...
+Removing the game files ...	正在删除游戏文件...
+Removing the registry entry ...	正在删除注册表项...
+Result checksum does not match	结果校验和不匹配
+Save games folder: {0}	存档文件夹：{0}
+Setting {0} not found in {1}	在 {1} 中未找到设置 {0}
+Settings applied.	设置已应用。
+Smooth picture (filter); off = sharp pixels	平滑画面（滤镜）；关闭 = 清晰像素
+Source:	来源：
+Start zoom level (battlefield):	初始缩放级别（战场）：
+Target folder for the game	游戏的目标文件夹
+Target:	目标：
+The .mdf file next to the .mds is missing: {0}	.mds 旁边缺少 .mdf 文件：{0}
+The target folder already contains the game. Overwrite the game files? (Save games are kept.)	目标文件夹中已有游戏。是否覆盖游戏文件？（存档会保留。）
+The target folder does not exist yet.	目标文件夹尚不存在。
+This folder was not installed by the launcher.	此文件夹不是由启动器安装的。
+Uninstall...	卸载...
+Your screen: {0}	你的屏幕：{0}

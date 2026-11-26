@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Vlad Tepes Dracula – 游戏指南</title>
+<style>
+  :root { --ink:#2b2118; --paper:#f4ecdc; --rule:#c9b89a; --accent:#8b1a1a; --muted:#6d5f4d; }
+  body { margin:0; background:#e6dcc6; color:var(--ink); font:16px/1.7 Georgia, "Microsoft YaHei", "SimSun", serif; }
+  main { max-width:860px; margin:0 auto; padding:32px 40px 64px; background:var(--paper); min-height:100vh; box-sizing:border-box; }
+  h1 { font-size:2.1em; color:var(--accent); margin:0 0 4px; letter-spacing:.5px; }
+  .sub { color:var(--muted); margin:0 0 24px; }
+  h2 { color:var(--accent); border-bottom:1px solid var(--rule); padding-bottom:4px; margin-top:40px; }
+  h3 { margin:24px 0 6px; }
+  nav { background:#ebe1cb; border:1px solid var(--rule); padding:12px 20px; border-radius:4px; }
+  nav ol { margin:0; padding-left:20px; columns:2; }
+  nav a, a { color:var(--accent); }
+  table { border-collapse:collapse; width:100%; margin:8px 0 16px; font-size:.95em; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  th { background:#ebe1cb; }
+  kbd { font:13px/1 Consolas, monospace; background:#fff; border:1px solid #b9a888; border-bottom-width:2px; border-radius:3px; padding:2px 6px; white-space:nowrap; }
+  .tip { background:#efe3c8; border-left:4px solid var(--accent); padding:8px 14px; margin:14px 0; }
+  .new { display:inline-block; font:bold 11px sans-serif; color:#fff; background:var(--accent); border-radius:3px; padding:1px 5px; vertical-align:middle; }
+  footer { margin-top:48px; color:var(--muted); font-size:.85em; }
+</style>
+</head>
+<body><main>
+<h1>Vlad Tepes Dracula</h1>
+<p class="sub">现代化版游戏指南 —— 基础知识、游戏流程与操作</p>
+
+<nav><ol>
+  <li><a href="#about">游戏简介</a></li>
+  <li><a href="#start">开始游戏</a></li>
+  <li><a href="#council">议会（战略地图）</a></li>
+  <li><a href="#battle">战斗</a></li>
+  <li><a href="#units">兵种</a></li>
+  <li><a href="#buildings">建筑</a></li>
+  <li><a href="#keys">键盘操作</a></li>
+  <li><a href="#new">本版本新增内容</a></li>
+  <li><a href="#tips">新手建议</a></li>
+</ol></nav>
+
+<h2 id="about">1. 游戏简介</h2>
+<p>1456 年的瓦拉几亚：这片土地被划分为十二个郡，其中大部分落入奥斯曼军队之手。你将扮演弗拉德·德古拉，
+领导抵抗运动，一个郡接一个郡地收复国土。</p>
+<p>游戏分为两个层面，你会在两者之间不断切换：</p>
+<ul>
+  <li><b>议会</b>是回合制的战略地图，每回合为一周。你在这里管理资源、训练部队、修建防御工事，并派遣军队进入相邻的郡。</li>
+  <li><b>战斗</b>是即时进行的。一旦你发动进攻或遭到攻击，就会在该郡的地图上作战，亲自指挥每一名士兵。</li>
+</ul>
+
+<h2 id="start">2. 开始游戏</h2>
+<p>主菜单提供以下选项：</p>
+<table>
+  <tr><th>Engage</th><td>开始游戏。如果已有进行中的游戏，可以继续、重新开始或返回。</td></tr>
+  <tr><th>Load / Save</th><td>读取或保存游戏。选择一个存档位，保存时输入名称，按 <kbd>Enter</kbd> 确认，按 <kbd>Esc</kbd> 取消。</td></tr>
+  <tr><th>Introduction</th><td>重新播放开场动画，按任意键中断。</td></tr>
+  <tr><th>Options</th><td>音效和音乐音量、亮度/色彩/对比度、游戏速度和滚动速度。<kbd>D</kbd> 恢复全部默认值。</td></tr>
+  <tr><th>Exit</th><td>退出游戏。请始终用这种方式退出，而不要用 Alt+F4。</td></tr>
+</table>
+<div class="tip">游戏内置帮助，列出了所有快捷键：按 <kbd>F1</kbd> 或 <kbd>Ctrl</kbd>+<kbd>H</kbd>
+（或点击侧边栏底部的帮助框）。用方向键和 Page Up/Down 翻页，<kbd>Esc</kbd> 关闭。</div>
+
+<h2 id="council">3. 议会（战略地图）</h2>
+<h3>地图</h3>
+<p>棕色的郡属于敌人，其余属于你。始终有一个郡处于<b>选中</b>状态（高亮显示），议会中的所有命令都作用于这个郡。
+用鼠标点击或方向键来选择。双击你自己的郡（或按 <kbd>I</kbd>）可打开它的战场：这样就能在进攻前部署部队或查看地形。
+蓝色箭头表示你的部队调动。</p>
+
+<h3>资源</h3>
+<p>屏幕下方中间显示五项数值，上面是当前库存，下面是每周的变化：</p>
+<table>
+  <tr><th>黄金</th><td>用于训练、建造和研究。</td></tr>
+  <tr><th>粮食</th><td>每名士兵每周消耗一份。如果供养不足，部队会逃散。</td></tr>
+  <tr><th>建材</th><td>建造所需。</td></tr>
+  <tr><th>新兵</th><td>可用来训练新部队的人员。</td></tr>
+  <tr><th>军队</th><td>你的总兵力。</td></tr>
+</table>
+<p>点击资源图片可显示或隐藏变化曲线。</p>
+
+<h3>左侧的选项卡</h3>
+<table>
+  <tr><th>训练</th><td>训练部队。列表显示费用、所需周数和战斗属性（伤害、命中、护甲、耐力、速度、射程）。
+  新部队出现在选中的郡。可训练的兵种取决于你的军备等级。</td></tr>
+  <tr><th>调动</th><td>显示选中郡的部队。点击部队，再点击相邻的郡（此时光标会变成一把剑）。己方郡 = 调动，敌方郡 = 进攻。
+  在本周结束前，再次点击该部队即可取消调动。<kbd>空格</kbd>全选或全不选，<kbd>Backspace</kbd>反选。</td></tr>
+  <tr><th>建筑</th><td>修理、升级或新建桥梁、塔楼、要塞和城堡。每个郡同时只能进行一项工程。点击沙漏可取消工程。</td></tr>
+  <tr><th>情报</th><td>选中郡的资源、部队和建筑。要查看敌方郡，需要在那里有间谍。</td></tr>
+  <tr><th>行政</th><td>两个方向的研究：<b>军备</b>（更强的新兵种）和<b>建筑学</b>（更好的建筑）。花费高、耗时长，但必不可少。</td></tr>
+</table>
+
+<h3>印章：结束本周</h3>
+<p>下达完所有命令后，点击右下角的红色<b>印章</b>。本周结束，所有命令得到执行，你会得知发生了什么。
+伤员每周会恢复一些。如果爆发战斗，游戏会切换到战场。</p>
+
+<h2 id="battle">4. 战斗</h2>
+<h3>视野与侦察</h3>
+<p>在他人的郡中，地图起初是黑色的。明亮区域是士兵当前能看到的地方；暗色区域已经探索过，但不显示敌人。
+在你自己的郡（或间谍已送回地图时）没有黑色区域。第一次进攻时，总览地图会标出你的目标；之后会按重要程度显示更多目标。
+用交叉木板做成的界桩标示通往相邻郡的通道：很适合安排岗哨。</p>
+
+<h3>用鼠标指挥</h3>
+<table>
+  <tr><th>选择</th><td>左键点击士兵，或拖出方框框选多人。<kbd>Shift</kbd> 追加，<kbd>Ctrl</kbd> 反选。</td></tr>
+  <tr><th>取消选择</th><td>右键点击。</td></tr>
+  <tr><th>移动</th><td>左键点击空地。</td></tr>
+  <tr><th>攻击</th><td>左键点击敌人。进攻者会脱离队形。</td></tr>
+  <tr><th>移动视角</th><td>鼠标移到屏幕边缘、方向键，或按住 <kbd>Alt</kbd> 移动鼠标。也可以在左上角的总览地图上点击并拖动。</td></tr>
+  <tr><th>缩放 <span class="new">新</span></th><td>鼠标滚轮：向前拉近，向后拉远（7 级）。光标下的位置保持不动。</td></tr>
+  <tr><th>城门</th><td>先取消所有选择（右键），然后点击城门即可开关，前提是没有人挡路。</td></tr>
+</table>
+<p>选中士兵下方的绿条表示他们的生命值。</p>
+
+<h3>侧边栏中的命令</h3>
+<p>每条命令都作用于选中的士兵。快捷键是英文名称的首字母。</p>
+<table>
+  <tr><th>命令</th><th>按键</th><th>效果</th></tr>
+  <tr><td>Walk（行走）</td><td><kbd>W</kbd></td><td>然后点击目的地。</td></tr>
+  <tr><td>Attack（攻击）</td><td><kbd>A</kbd></td><td>然后点击敌人。如果目标处没有敌人，则变为行军。</td></tr>
+  <tr><td>Stop（停止）</td><td><kbd>S</kbd></td><td>立即停下并原地待命。</td></tr>
+  <tr><td>Guard（守卫）</td><td><kbd>G</kbd></td><td>点击一个地点。士兵会留守那里，即使遭到攻击也不离开。</td></tr>
+  <tr><td>Patrol（巡逻）</td><td><kbd>P</kbd></td><td>点击一个地点。士兵会在该地点与出发点之间来回巡逻。</td></tr>
+  <tr><td>Flee（逃跑）</td><td><kbd>F</kbd></td><td>朝威胁最小的方向逃跑。</td></tr>
+  <tr><td>Manoeuvre（机动）</td><td><kbd>M</kbd></td><td>设置一串路径点：每个点按 <kbd>M</kbd> 再点击，<kbd>Backspace</kbd> 删除最后一个，<kbd>Enter</kbd> 开始执行。</td></tr>
+  <tr><td>Leave（撤退）</td><td><kbd>L</kbd></td><td>全军撤退（用 <kbd>Y</kbd>/<kbd>N</kbd> 确认）。通常会损失一些士兵。</td></tr>
+  <tr><td>议会</td><td>–</td><td>返回议会（仅当你是从议会打开该战场时）。</td></tr>
+</table>
+
+<h3>行军方式</h3>
+<p><kbd>空格</kbd>（或“Formation walk”按钮）在两种行军方式间切换：<b>保持队形</b>时士兵维持阵列，适合长途行军；
+<b>集结</b>时所有人直接前往点击的位置，通常更适合战斗。</p>
+
+<h3>行为模式</h3>
+<p>三个按钮决定士兵在你<i>没有</i>直接指挥时的表现：</p>
+<table>
+  <tr><th>胆怯（黄点）</th><td>一受伤就逃跑。</td></tr>
+  <tr><th>普通（蓝点）</th><td>默认：只有重伤时才逃跑。</td></tr>
+  <tr><th>狂暴（红点）</th><td>攻击视野内的所有敌人，战斗至死；攻击略增，防御略降。</td></tr>
+</table>
+
+<h2 id="units">5. 兵种</h2>
+<table>
+  <tr><th>剑士</th><td>廉价步兵，即使在狭窄地形也很灵活。在议会中以五人为一组训练和调动。</td></tr>
+  <tr><th>弩手</th><td>远程部队，同样五人一组。能让骑兵难以近身；最适合部署在塔楼和城墙上。</td></tr>
+  <tr><th>骑士</th><td>快速而强大的骑兵。其维持费用相当于五名剑士。</td></tr>
+  <tr><th>攻城槌</th><td>造价低廉，能撞开城门，但无法破坏城墙。在拥有投石车之前不可或缺。</td></tr>
+  <tr><th>投石车</th><td>可摧毁城墙和城门，也能向部队投掷石块。</td></tr>
+  <tr><th>火炮</th><td>与投石车类似，但更快、更准、射速更高。早期火炮可能炸膛：让你的士兵远离。</td></tr>
+  <tr><th>间谍</th><td>从不出现在战场上。把他们派到敌方郡；一段时间后，他们会报告资源、部队、建筑，甚至送回地图。
+  如果全部被捕，这些情报就会丢失。</td></tr>
+</table>
+<p>远程单位在目标距离不到射程一半时命中率大幅提高。长期存活的士兵会成为老兵，攻击更强。重伤的士兵行动更慢。</p>
+
+<h2 id="buildings">6. 建筑</h2>
+<p><b>桥梁</b>（木制或石制）、<b>瞭望塔</b>（最多容纳四名射手）、<b>要塞</b>和<b>城堡</b>（城墙更高，士兵可以站在上面，可选护城河）。
+大型建筑还能增加该郡的收入，并有助于揪出敌方间谍。士兵在城墙和塔楼上看得更远、射得更远；只需点击即可登上城堡城墙。
+房屋无法穿行：需要保护的士兵可以躲在里面。</p>
+
+<h2 id="keys">7. 键盘操作（战斗）</h2>
+<table>
+  <tr><th>按键</th><th>效果</th></tr>
+  <tr><td><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>G</kbd> <kbd>P</kbd> <kbd>F</kbd> <kbd>M</kbd> <kbd>L</kbd></td><td>行走、攻击、停止、守卫、巡逻、逃跑、机动、撤退</td></tr>
+  <tr><td><kbd>空格</kbd></td><td>行军方式：保持队形 / 集结</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>0</kbd>…<kbd>9</kbd></td><td>将当前选择保存为编队</td></tr>
+  <tr><td><kbd>0</kbd>…<kbd>9</kbd></td><td>选择编队</td></tr>
+  <tr><td><kbd>Shift</kbd>+<kbd>0</kbd>…<kbd>9</kbd></td><td>将编队加入当前选择</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>A</kbd></td><td>选择你的所有士兵</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>V</kbd></td><td>选择所有可见士兵</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>Backspace</kbd></td><td>反选</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd> / <kbd>C</kbd> / <kbd>K</kbd> / <kbd>J</kbd> / <kbd>T</kbd> / <kbd>N</kbd></td><td>选择可见的剑士 / 弩手 / 骑士 / 攻城槌 / 投石车 / 火炮（加 <kbd>Shift</kbd>：追加地图上的所有同类）</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>←</kbd> / <kbd>→</kbd></td><td>上一个 / 下一个士兵</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>↑</kbd> / <kbd>↓</kbd></td><td>将视角移到该士兵</td></tr>
+  <tr><td><kbd>Tab</kbd></td><td>视角跟随选择</td></tr>
+  <tr><td><kbd>Ctrl</kbd>+<kbd>F2</kbd>…<kbd>F8</kbd> / <kbd>F2</kbd>…<kbd>F8</kbd></td><td>记住地图位置 / 跳转到该位置</td></tr>
+  <tr><td><kbd>Pause</kbd></td><td>暂停游戏</td></tr>
+  <tr><td><kbd>F1</kbd>、<kbd>Ctrl</kbd>+<kbd>H</kbd></td><td>内置帮助</td></tr>
+  <tr><td><kbd>Esc</kbd></td><td>返回主菜单（在主菜单中：高亮“Exit”）</td></tr>
+  <tr><td>鼠标滚轮 <span class="new">新</span></td><td>缩放</td></tr>
+  <tr><td><kbd>Alt</kbd>+<kbd>Enter</kbd></td><td>窗口 / 全屏</td></tr>
+</table>
+<p><b>在议会中：</b>方向键选择郡，<kbd>I</kbd> 打开其战场；在“调动”选项卡中，<kbd>空格</kbd> = 全选/全不选，<kbd>Backspace</kbd> = 反选。</p>
+
+<h2 id="new">8. 本版本新增内容</h2>
+<ul>
+  <li><b>16:9 大战场</b>，支持 7 级<b>鼠标滚轮缩放</b>；侧边栏始终保持原有大小。</li>
+  <li>信息框下方的<b>兵种按钮</b>：点击即可选中整张地图上该兵种的所有存活单位，<kbd>Shift</kbd>+点击追加。数字显示仍存活的数量。</li>
+  <li><b>编队按钮 1–9 和 0</b>：点击选择编队，<kbd>Shift</kbd>+点击追加，<kbd>Ctrl</kbd>+点击将当前选择保存为该编队（与数字键相同的编队）。</li>
+  <li>菜单和战略地图两侧显示模糊背景，视频没有黑线，无需 CD。</li>
+</ul>
+
+<h2 id="tips">9. 新手建议</h2>
+<ul>
+  <li><b>弩手</b>是最好的防守力量：把他们部署在塔楼和城堡城墙上，并设为狂暴模式。</li>
+  <li>尽早投资<b>军备</b>：没有投石车和火炮，你就无法对付苏丹的大型城堡。</li>
+  <li>大部队要<b>保持队形</b>行军。如果单位太多导致游戏变慢，先全选（<kbd>Ctrl</kbd>+<kbd>A</kbd>），按 <kbd>S</kbd> 停下，再以队形重新出发。</li>
+  <li>注意<b>粮食</b>：没有补给，你的士兵会逃散。</li>
+  <li>进攻前先派出<b>间谍</b>：有了他们的地图，你在行军途中就能看到敌人。</li>
+  <li>在预计下一次进攻的地方占据界桩、桥梁和山口。</li>
+</ul>
+
+<footer>为现代化版编写的独立摘要。<i>Vlad Tepes Dracula</i> © 1997 Computer House。
+如果你用启动器从 CD 安装，游戏文件夹中会有英文原版说明书 <code>MANUAL.PDF</code>。</footer>
+</main></body></html>
