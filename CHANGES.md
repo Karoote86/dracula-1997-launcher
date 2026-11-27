@@ -71,6 +71,9 @@ These fix original behaviour that made large battles slow and frustrating.
   candidate stood near a visible area. It now tries the next hidden soldier instead.
 - **Last stand:** below that same threshold, the remaining idle enemies attack your nearest unit instead of standing
   somewhere in the fog, so you no longer have to search the map for them.
+- **Minimap click fixed:** a short click on the minimap (with nothing selected) now always moves the view there.
+  In the original the view only jumped if the mouse button was still held a moment later, so quick clicks were
+  often ignored.
 - **Patrol bug fixed:** the Patrol command in the original set *all* own units to patrol, not only the selected ones.
 - **Group buttons removed:** an earlier version of this project added control-group buttons to the side panel; they
   were dropped again. Control groups work as in the original via the keys (Ctrl+0..9 store, 0..9 recall,
