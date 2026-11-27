@@ -18,6 +18,9 @@ music) from your CD. The patches contain only new code; wherever they need bytes
 just a reference (offset, length) into your own EXE. Files are verified with SHA-256 checksums
 (`data/original_files.tsv`).
 
+A complete list of all differences from the original game: **[CHANGES.md](CHANGES.md)**.
+Found a bug? Please report it under [Issues](https://github.com/Karoote86/dracula-1997-launcher/issues).
+
 ## Usage
 1. Start `DraculaLauncher.exe`.
 2. Choose the source: `Dracula.mds` (the `.mdf` must be next to it) or the `Dracula.exe` of an installed original.
