@@ -64,6 +64,13 @@ These fix original behaviour that made large battles slow and frustrating.
   catapults, cannons) keep marching. Explicit attack orders and patrols are unchanged.
 - **Resuming the march:** a unit that left its march to fight continues to its original destination once no enemy
   is in range any more. A new move order or Stop (S) cancels this.
+- **Enemy groups react together:** when an enemy soldier attacks, idle enemies within 8 cells join in on the same
+  target. In the original only the edge of an enemy formation charged, one soldier at a time.
+- **Hidden stragglers:** the original already lets an enemy army that is down to fewer than 10 % (at least 5) of its
+  strength lose one soldier hidden in the fog every ~10 seconds, but the rule stopped working as soon as the first
+  candidate stood near a visible area. It now tries the next hidden soldier instead.
+- **Last stand:** below that same threshold, the remaining idle enemies attack your nearest unit instead of standing
+  somewhere in the fog, so you no longer have to search the map for them.
 - **Patrol bug fixed:** the Patrol command in the original set *all* own units to patrol, not only the selected ones.
 - **Group buttons removed:** an earlier version of this project added control-group buttons to the side panel; they
   were dropped again. Control groups work as in the original via the keys (Ctrl+0..9 store, 0..9 recall,
